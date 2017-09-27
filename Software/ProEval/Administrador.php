@@ -2,22 +2,20 @@
 	class usuario{
 		private $Nombre;
 		private $Contrasena;
-		private $idUsuario;
-		private $idProyecto;
+		private $idAdministrador;
 
 		public function __construct() {
 			$this->Nombre = "";
 			$this->Contrasena="";
-			$this->idUsuario="";
-			$this->idProyecto="";
+			$this->idAdministrador="";
 		}
 
-		public function setidUsuario($idUsuario) {
-			$this->idUsuario = $idUsuario;
+		public function setidAdministrador($idAdministrador) {
+			$this->idAdministrador = $idAdministrador;
 		}
 
-		public function getIdUsuario() {
-			return $this->idUsuario;
+		public function getIdAdministrador() {
+			return $this->idAdministrador;
 		}
 		
 		public function setNombre($Nombre) {
@@ -35,13 +33,6 @@
 		public function getContrasena() {
 			return $this->Contrasena;
 		}
-
-		public function setidProyecto($idProyecto) {
-			$this->idProyecto = $idProyecto;
-		}
-
-		public function getidProyecto() {
-			return $this->idProyecto;
 		}
 	}
 ?>
