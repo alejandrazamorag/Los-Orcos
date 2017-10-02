@@ -1,13 +1,14 @@
 <?php
 	class Administrador{
-		private $Nombre;
-		private $Contrasena;
 		private $idAdministrador;
+		private $Nombre_Admin;
+		private $Contrasena_Admin;
+		
 
 		public function __construct() {
-			$this->Nombre = "";
-			$this->Contrasena="";
 			$this->idAdministrador="";
+			$this->Nombre_Admin = "";
+			$this->Contrasena_Admin="";
 		}
 
 		public function setidAdministrador($idAdministrador) {
@@ -18,20 +19,20 @@
 			return $this->idAdministrador;
 		}
 		
-		public function setNombre($Nombre) {
-			$this->Nombre = $Nombre;
+		public function setNombre_Admin($Nombre_Admin) {
+			$this->Nombre_Admin = $Nombre_Admin;
 		}
 
-		public function getNombre() {
-			return $this->Nombre;
+		public function getNombre_Admin() {
+			return $this->Nombre_Admin;
 		}
 
-		public function setContrasena($Contrasena) {
-			$this->Contrasena = $Contrasena;
+		public function setContrasena_Admin($Contrasena_Admin) {
+			$this->Contrasena_Admin = $Contrasena_Admin;
 		}
 
-		public function getContrasena() {
-			return $this->Contrasena;
+		public function getContrasena_Admin() {
+			return $this->Contrasena_Admin;
 		}
 		}
 	}
