@@ -10,8 +10,9 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
-	<link rel="stylesheet" href="style2.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style3.css" type="text/css" media="screen">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
+    <link rel="stylesheet" href="estiloUsuario.css" type="text/css" media="screen">
 	
      <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -30,16 +31,16 @@
  <a id="touch-menu" class="mobile-menu" href="#"><i class="icon-reorder"></i>Menú</a>
     <nav>
     <ul class="menu">
-   <li><a href="#"><i class="icon-adm.png""></i>PROYECTOS</a>
+   <li><a href="#"><i class="icon-adm.png""></i>ADMINISTRADOR</a>
 
    <ul class="sub-menu">
-   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
+   <li><a href="Login_Administrador.html">Salir</a></li>
    <!--<li><a href="cotizaciones_incompletasAdmn.php">AGREGAR USUARIOS A PROYECTOS</a></li>-->
    </ul>
    </li>
-   <li><a  href="#"><i class="icon-user"></i>ADMINISTRADOR</a>
+   <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
-   <li><a href="Login_Administrador.html">Salir</a></li>
+   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
     <ul>
     </ul>
    </li>

@@ -23,11 +23,5 @@
 		public function desconectar() {
 			mysqli_close($this->conexion);
 		}
-
-/*		public function guardarUsuario($mUsuario) {
-
-			$consulta = mysqli_query($this->conexion, "insert into  values ('".$mUsuario->getNombre()."','".$mUsuario->getnombre()."',".$mUsuario->getCorreo().",".$mUsuario->getContrasena().","$mUsuario->getTipo().");") or die (mysqli_error($this->conexion));
-		}
-		*/
 	}
 ?>
