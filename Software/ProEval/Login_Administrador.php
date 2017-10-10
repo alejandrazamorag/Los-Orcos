@@ -9,10 +9,10 @@
 		$nombre=$_GET["txtnombre_Admin"];
 		$contrasena=$_GET["txtcontrasena_Admin"];
 		$conexion=mysqli_connect("localhost","root","","delphi");
-		$consulta=mysqli_query($conexion,"select * from administrador where Nombre_Admin='$nombre' and Contrasena_Admin='$contrasena'");
+		$consulta=mysqli_query($conexion,"select * from usuarios where Nombre='$nombre' and Contrasena='$contrasena' and Tipo=1;");
 		$RESULTADO=mysqli_num_rows($consulta);
 		
-		if((mysqli_num_rows($consulta)>0) && ($nombre == "administrador") && ($contrasena == "admin")){
+		if((mysqli_num_rows($consulta)>0) && ($nombre == "Administrador") && ($contrasena == "admin")){
 			?>
 			<script type="text/javascript">
 				window.location.href="Inicio_Administrador.php?txtnombre_Admin=<?php echo $nombre; ?>";
