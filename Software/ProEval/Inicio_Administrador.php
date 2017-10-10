@@ -39,15 +39,21 @@
    </ul>
    </li>
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
-  <ul class="sub-menu">
-   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
-    <li><a href="Consultar_Proyectos.php">Consultar Proyectos</a></li>
+   <ul class="sub-menu">
    <li><a href="Principal.html">Crear Nuevo Proyecto</a></li>
-    <ul>
-    </ul>
+   <ul>
+   </ul>
    </li>
    </ul>
-  </li>
+
+   </li>
+   <li><a href="#"><i class="icon-user""></i>US</a>
+
+   <ul class="sub-menu">
+   <li><a href="registro_usuario.html">Registrar Usuario</a></li>
+   <!--<li><a href="cotizaciones_incompletasAdmn.php">AGREGAR USUARIOS A PROYECTOS</a></li>-->
+   </ul>
+   </li>
 
   
   </ul>
