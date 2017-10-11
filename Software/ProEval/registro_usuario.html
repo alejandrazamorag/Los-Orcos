@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>registro_usuario</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="estiloUsuario.css">
+
+	<script >
+			function validar(e){
+				key=e.keyCode || e.which;
+
+				teclado=String.fromCharCode(key);
+			
+			especiales="8-37-38-46";
+			letras="ABCDEFGHIJKLMNÑOPRRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789";
+			teclado_especial=false;
+
+			for ( var i in especiales){
+					if(key==especiales[i]){
+						teclado_especial=true;
+					}
+			}
+
+			if(letras.indexOf(teclado)==-1 && !teclado_especial){
+				return false;
+			}
+		}
+
+				
+			
+		</script>
+	</head>
+	<body>
+			
+			
+			<form name="frmUsuario" method="get" action="AltaUsuarios.php" >
+			<h1>Registro de Usuario</h1>
+			<!-- Texto -->
+			<br>
+			Nombre de Usuario:
+			<input type="text"  onkeypress="return validar(event)" placeholder=" &#128587; Nombre" placeholder="Minombrees" name="txtnombre" required="required">
+			<!-- Botón-->
+			<input type="submit" name="btnguardar" value="Guardar">
+			<br>
+			
+			</form>
+			</form>
+			<br>
+			<form name="frmregresar3" action="Inicio_Administrador.php">
+			<input type="submit" name="btnregresar3" value="Regresar">
+		</form>
+			<br>
+			<form name="frmregresar" action="principal.html">
+			<input type="submit" name="btnregresar" value="Inicio">
+		</form>
+			
+	
+	</body>
+	</body>
+</html>

@@ -40,12 +40,20 @@
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
+   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Terminados</a></li>
+    <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
     <ul>
     </ul>
    </li>
    </ul>
   </li>
+ <li><a href="#"><i class="icon-user""></i>US</a>
 
+   <ul class="sub-menu">
+   <li><a href="registro_usuario.html">Registrar Usuario</a></li>
+   <!--<li><a href="cotizaciones_incompletasAdmn.php">AGREGAR USUARIOS A PROYECTOS</a></li>-->
+   </ul>
+   </li>
   
   </ul>
   </nav>
