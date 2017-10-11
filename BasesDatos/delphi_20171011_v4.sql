@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2017 a las 05:42:24
+-- Tiempo de generación: 12-10-2017 a las 01:38:00
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -77,8 +77,8 @@ CREATE TABLE IF NOT EXISTS `tareas` (
   `idTareas` int(11) NOT NULL AUTO_INCREMENT,
   `Proyecto_idProyecto` int(11) NOT NULL,
   `Descripcion_Tareas` varchar(255) NOT NULL,
-  `Peso` int(11) NOT NULL,
-  `Resultado_Final` int(11) NOT NULL,
+  `Peso` int(11) DEFAULT NULL,
+  `Resultado_Final` int(11) DEFAULT NULL,
   PRIMARY KEY (`idTareas`),
   KEY `Proyecto_idProyecto` (`Proyecto_idProyecto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
