@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2017 a las 01:38:00
+-- Tiempo de generación: 13-10-2017 a las 01:40:34
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `proyecto` (
   `Fecha_Creacion` date NOT NULL,
   `Fecha_Limite` date NOT NULL,
   `Hora_Limite` time NOT NULL,
+  `Estado` int(11) NOT NULL,
   PRIMARY KEY (`idProyecto`),
   UNIQUE KEY `Nombre` (`Nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
