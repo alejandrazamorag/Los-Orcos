@@ -34,22 +34,30 @@
    <li><a href="#"><i class="icon-adm.png""></i>ADMINISTRADOR</a>
 
    <ul class="sub-menu">
-   <li><a href="Login_Administrador.html"> Salir</a></li>
+      <li><a href="Inicio_Administrador.php">Inicio</a></li>
+   <li><a href="Login_Administrador.html">Salir</a></li>
    </ul>
    </li>
+   
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
       <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Terminados</a></li>
          <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
+
     <ul>
+
     </ul>
+
    </li>
+
    </ul>
+
   </li>
 
   
   </ul>
+
   </nav>
   
         
@@ -107,10 +115,7 @@
 
 ?>  
 </div>
-<br>
-  <form name="frmregresar" action="Inicio_Administrador.php">
-    <input type="submit" name="btnregresar" value="Regresar">
-  </form> 
+
    
   </body>
 </html>

@@ -42,6 +42,8 @@
    <ul class="sub-menu">
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
    <li><a href="Consultar_Proyectos.php">Consultar Proyectos</a></li>
+     <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Terminados</a></li>
+         <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
    <ul>
    </ul>
    </li>
