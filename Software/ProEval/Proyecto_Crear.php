@@ -15,7 +15,7 @@
 		$conexion=mysqli_connect("localhost","root","","delphi");
 		$fechaCreacion=date("Y-m-d");
 
-		$consulta=mysqli_query($conexion,"insert into proyecto(idProyecto ,Nombre ,Descripcion, Fecha_Creacion, Fecha_Limite, Hora_Limite)  values (null ,'$nombreProyecto' ,'$descripcion','$fechaCreacion' ,'$fechalim' ,'$horalim');")or die(mysqli_error($conexion));
+		$consulta=mysqli_query($conexion,"insert into proyecto(idProyecto ,Nombre ,Descripcion, Fecha_Creacion, Fecha_Limite, Hora_Limite, Estado)  values (null ,'$nombreProyecto' ,'$descripcion','$fechaCreacion' ,'$fechalim' ,'$horalim', 0);")or die(mysqli_error($conexion));
 
 		if($consulta!=null){
 			//	echo "cotizacion realizada y costo de $total";

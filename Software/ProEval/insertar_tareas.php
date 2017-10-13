@@ -17,8 +17,8 @@ die( "Fallo la conexión : (" . $conexion -> mysqli_connect_errno()
   ///////////////////CONSULTA DE LOS ALUMNOS///////////////////////
 $id = $_GET["id"];
 $nombrep =$_GET["nombrep"];
-echo $id; 
-echo $nombrep;
+//echo $id; 
+//echo $nombrep;
 $alumnos="SELECT * FROM tareas where Proyecto_idProyecto='$id';";
 $queryAlumnos= $conexion->query($alumnos);
 
