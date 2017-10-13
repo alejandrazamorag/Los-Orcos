@@ -31,7 +31,7 @@
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
-   <li><a href="Consultar_Proyectos.php"> Todos losProyectos</a></li>
+   <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
     <ul>
@@ -53,66 +53,93 @@
         
  </div>
 
-<!--
+<form name="frmdatos"  " method="get">
+ <br>
+ <big><i>   Datos del Proyecto  </big></i>
+     <br>
+     <br>
+  <?php
+    $conexion=mysqli_connect("localhost","root","","delphi");
+    $idproyecto = $_GET['txtnc'];
+    $nombre = $_GET['txtNombre'];
+    $descripcion = $_GET['txtdescripcion'];
+    $fechacreacion = $_GET['txtfechaC'];
+    $fechaLimite = $_GET['txtfechaL'];
+  ?>
+
+  ID Proyecto:
 <?php
-     $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto") or die(mysqli_error($conexion));
+        echo $idproyecto;
+?>
+      <!-- <input type="hidden" name="id" value="<?php echo $idusuario; ?>">-->
+      <br>
+  Nombre del proyecto:
+<?php
+        echo $idproyecto;
+?>
+<br>
+  Descripcion del proyecto:
+<?php
+        echo $descripcion;
+?>
+<br>
+  Fecha de Creación:
+<?php
+        echo $fechacreacion;
+?>
+<br>
+  Fecha de Limite:
+<?php
+        echo $fechaLimite;
+?>
+<br>
+<?php
+      $conexion = mysqli_connect("localhost","root","","delphi");
+      $consulta = mysqli_query($conexion, "select idTareas ,Descripcion_tareas from tareas where Proyecto_idProyecto='$idproyecto';") or die(mysqli_error($conexion));
+
         if(mysqli_num_rows($consulta)>0){
-      
+
 ?>
 
 
-<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2>  Proyectos </h2>
-      <table cellspacing="0" cellpadding="1" border="1" width="800">        
+
+<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 0px;">
+      <table cellspacing="0" cellpadding="1" border="1" width="500">        
           <tr style="color:white;background-color:grey"r>
-            <th>ID_PROYECTO</th>
-            <th>NOMBRE</th>
-            <th>DESCRIPCION</th>
-            <th>FECHA DE CREACIÓN</th>
-            <th>FECHA LÍMITE</th>
-             <th>ACCIONES</th>
+            <th>#T</th>
+            <th>Tareas del Proyectos</th>
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
                echo "<tr>";
-               echo "<td>".$registro['idProyecto']."</td>";
-               echo "<td> ".$registro['Nombre']."</td>";
-               echo "<td> ".$registro['Descripcion']."</td>";
-               echo "<td> ".$registro['Fecha_Creacion']."</td>";
-               echo "<td> ".$registro['Fecha_Limite']."</td>";
- 
-               echo "<td>";
-          
+               echo "<td> ".$registro['idTareas']."</td>";
+                echo "<td> ".$registro['Descripcion_tareas']."</td>";
+            
         ?>
-        
-  <a href="Visualizar_Proyecto.php?txtnc=<?php echo $registro['idProyecto']; ?>">Visualizar </a>
-
+ <!-- <a href="Visualizar_Usuario.php?txtid=<?php echo $registro['idProyecto'];?> && txtNombre=<?php echo $registro['Nombre'];?>"></a>-->
 <?php
-
               echo "</td>";
               echo "</tr>";
-
     }
-            
+             
 ?>
 
-</table> 
+</table>
 <?php
 
 }else{
-    echo "No existen registros";
+    echo "No existen Tareas";
   }
   mysqli_close($conexion);  
 
 ?>  
-
 </div>
 
-<br>
-  <form name="frmregresar" action="Inicio_Administrador.php">
-    <input type="submit" name="btnregresar" value="Regresar">
-  </form> 
-   -->
+<!--<form name="frmregresar" action="Consultar_Proyectos.php">
+      <input type="submit" name="btnregresar" value="Regresar">
+      <!-- <input type="text" name="txtnombre" value=<?php echo $nombre ?> <div style="visibility: hidden;"> </div>-->
+    </form>-->
+</form>
+
   </body>
 </html>

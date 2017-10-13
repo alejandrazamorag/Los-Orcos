@@ -31,7 +31,7 @@
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
-         <li><a href="Consultar_Proyectos.php"> Todos losProyectos</a></li>
+         <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
     <ul>
@@ -53,7 +53,7 @@
         
  </div>
 
-    <title>Crear Cotizacion </title>
+    <title>Visualizar Usuario</title>
     <meta charset="utf-8">
     <style type="text/css">
       form,h1{
