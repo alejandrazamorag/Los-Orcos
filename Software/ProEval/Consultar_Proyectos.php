@@ -66,7 +66,7 @@
 
 <?php
       $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto") or die(mysqli_error($conexion));
+      $consulta = mysqli_query($conexion, "select * from proyecto") or die(mysqli_error($conexion));
         if(mysqli_num_rows($consulta)>0){
 
 ?>
@@ -82,7 +82,9 @@
             <th>DESCRIPCION</th>
             <th>FECHA DE CREACIÓN</th>
             <th>FECHA LÍMITE</th>
-             <th>ACCIONES</th>
+            <th>HORA LÍMITE</th>
+            <th>ESTADO (0-En Proceso, 1-Aceptados)</th>
+            <th>ACCIONES</th>
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
@@ -92,6 +94,8 @@
                echo "<td> ".$registro['Descripcion']."</td>";
                echo "<td> ".$registro['Fecha_Creacion']."</td>";
                echo "<td> ".$registro['Fecha_Limite']."</td>";
+               echo "<td> ".$registro['Hora_Limite']."</td>";
+               echo "<td> ".$registro['Estado']."</td>";
  
                echo "<td>";
           
