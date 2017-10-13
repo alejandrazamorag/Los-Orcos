@@ -40,10 +40,14 @@
    </li>
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
    <ul class="sub-menu">
+<<<<<<< HEAD
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
    <li><a href="Consultar_Proyectos.php"> Todos losProyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
+=======
+   <li><a href="Principal.html">Crear Nuevo Proyecto</a></li>
+>>>>>>> 4c83fa942b924997eda313f387d3842e9d56290d
    <ul>
    </ul>
    </li>
