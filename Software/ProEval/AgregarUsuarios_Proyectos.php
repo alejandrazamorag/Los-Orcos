@@ -39,7 +39,7 @@
    </li>
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
-   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
+   <li><a href="AgregarUsuarios_Proyectos.php">Agregar Usuario a Proyecto</a></li>
     <ul>
     </ul>
    </li>
@@ -53,30 +53,57 @@
         
  </div><!--end mainWrap-->
 
-<form name="frmdatos" action="Proyecto_Crear.php" " method="get">
+<form name="frmdatos" action="AgregarUsuariosAProyectos.php" " method="get">
  <br>
- <big><i>      Crear Proyecto  </big></i>
-      <br>
-      <br>
-      Nombre del Proyecto:
-      <input type="text" name="txtNombreProyecto" required="required">
-      <br>
-      Descripción del proyecto:
-      <br>
-      <textarea name="txtDescripcion" required="required" rows="5" cols="43"></textarea>
+ <big><i>      Agregar usuario a proyecto  </big></i>
+ 	  <?php
+ 	  	$conexion=mysqli_connect("localhost","root","","delphi");
+  		$consulta=mysqli_query($conexion,"select * from usuarios;");
+  		if(mysqli_num_rows($consulta) > 0){
+ 	  ?>
       <br>
       <br>
       <br>
-      Terminó de estimación:
+      Nombre de usuario:
+      <?php   
+      echo "<select name='idUsuarios'>"; 
+      while($rows=mysqli_fetch_array($consulta)){
+      		echo "<option value=".$rows['idUsuarios'].">".$rows['Nombre']." Contraseña: ".$rows['Contrasena']."</option>";
+    	}
+    	echo "</select>";
+  	}
+    ?>
+  <?php
+
+  $consulta2=mysqli_query($conexion,"select * from proyecto;");
+  
+  if(mysqli_num_rows($consulta2) > 0) {
+  ?>
+  	<br>
       <br>
-      -Selecciona la fecha
-      <input type="date" name="fechalimite" min="2017-10-01" max="2018-10-25" required="required">
-      <!-- Campo de entrada de hora -->
       <br>
-      -Selecciona la hora
-      <input type="time" name="horalimite" min="24:00" max="24:00" step="600" required="required">
+      <br>
+      <br>
+      Nombre del proyecto:
+      <?php   
+      echo "<select name='idProyecto'>"; 
+      while($rows=mysqli_fetch_array($consulta2)){
+      		echo "<option value=".$rows['idProyecto'].">".$rows['Nombre']."</option>";
+    	}
+    	echo "</select>";
+  	}
+  	mysqli_close($conexion); 
+  ?>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <br>
       <!-- Botón--> 
-      <input type="submit" name="btnguardarProyecto" value="Crear Proyecto">  
+      <input type="submit" name="btnagregarUaP" value="Agregar">
+
 </body>
 </html>

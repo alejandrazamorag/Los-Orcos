@@ -34,30 +34,22 @@
    <li><a href="#"><i class="icon-adm.png""></i>ADMINISTRADOR</a>
 
    <ul class="sub-menu">
-      <li><a href="Inicio_Administrador.php">Inicio</a></li>
-   <li><a href="Login_Administrador.html">Salir</a></li>
+   <li><a href="Login_Administrador.html"> Salir</a></li>
    </ul>
    </li>
-   
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
       <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Terminados</a></li>
          <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
-
     <ul>
-
     </ul>
-
    </li>
-
    </ul>
-
   </li>
 
   
   </ul>
-
   </nav>
   
         
@@ -66,7 +58,7 @@
 
 <?php
       $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select * from proyecto") or die(mysqli_error($conexion));
+      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto") or die(mysqli_error($conexion));
         if(mysqli_num_rows($consulta)>0){
 
 ?>
@@ -82,9 +74,7 @@
             <th>DESCRIPCION</th>
             <th>FECHA DE CREACIÓN</th>
             <th>FECHA LÍMITE</th>
-            <th>HORA LÍMITE</th>
-            <th>ESTADO (0-En Proceso, 1-Aceptados)</th>
-            <th>ACCIONES</th>
+             <th>ACCIONES</th>
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
@@ -94,8 +84,6 @@
                echo "<td> ".$registro['Descripcion']."</td>";
                echo "<td> ".$registro['Fecha_Creacion']."</td>";
                echo "<td> ".$registro['Fecha_Limite']."</td>";
-               echo "<td> ".$registro['Hora_Limite']."</td>";
-               echo "<td> ".$registro['Estado']."</td>";
  
                echo "<td>";
           
@@ -119,7 +107,10 @@
 
 ?>  
 </div>
-
+<br>
+  <form name="frmregresar" action="Inicio_Administrador.php">
+    <input type="submit" name="btnregresar" value="Regresar">
+  </form> 
    
   </body>
 </html>
