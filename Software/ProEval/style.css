@@ -64,9 +64,9 @@ html{-webkit-font-smoothing:antialiased;}
 a{color:#BA0707;}
 a:hover{color:#BA0707;text-decoration:underline;}
 
-body{background:#ffffff url("images/logo3.png") top no-repeat;
+body{background:#ffffff url("images/LOGO.png") top no-repeat;
 background-size: 100%;
-background-position: right;
+background-position: center;
 background-attachment: fixed;
 color:#3E4156;
 font: 14px "Open Sans", Helvetica, Arial, sans-serif;

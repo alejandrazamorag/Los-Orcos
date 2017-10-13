@@ -44,8 +44,11 @@
 <?php
 		$consulta=mysqli_query($conexion,"select idProyecto from proyecto where Nombre='$nombreProyecto';");
 		$r=mysqli_fetch_row($consulta);
-		echo $r[0]; //Esta esla variable que contiene el id del proyecto creado
+		//echo $r[0]; //Esta esla variable que contiene el id del proyecto creado
 		$id = $r[0];
+		$nombrep=$nombreProyecto;
+		//echo $nombrep;
+
 
 ?>
 
@@ -53,6 +56,7 @@
 			<h1> ProEval</h1>
 			<h2>Da clic al boton de abajo para agregar tareas</h2>
 			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			<input type="hidden" name="nombrep" value="<?php echo $nombreProyecto; ?>">
 			<input type="submit" name="btnregresar" value="Asignar Tareas">
 		</form>
 

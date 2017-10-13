@@ -6,11 +6,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-<<<<<<< HEAD
     <title>Consultar Usuarios</title>
-=======
-    <title>Consultar Proyectos</title>
->>>>>>> 4c83fa942b924997eda313f387d3842e9d56290d
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
@@ -35,7 +31,6 @@
  <a id="touch-menu" class="mobile-menu" href="#"><i class="icon-reorder"></i>Menú</a>
     <nav>
     <ul class="menu">
-<<<<<<< HEAD
    <li><a href="#"><i class="icon-adm.png""></i>ADMIN</a>
 
    <ul class="sub-menu">
@@ -71,28 +66,6 @@
   
   </ul>
 
-=======
-   <li><a href="#"><i class="icon-adm.png""></i>ADMINISTRADOR</a>
-
-   <ul class="sub-menu">
-   <li><a href="Login_Administrador.html"> Salir</a></li>
-   </ul>
-   </li>
-   <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
-  <ul class="sub-menu">
-   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
-      <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Terminados</a></li>
-         <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
-            <li><a href="Consultar_Usuarios.php">Consultar Usuarios</a></li>
-    <ul>
-    </ul>
-   </li>
-   </ul>
-  </li>
-
-  
-  </ul>
->>>>>>> 4c83fa942b924997eda313f387d3842e9d56290d
   </nav>
   
         
@@ -101,11 +74,7 @@
 
 <?php
       $conexion = mysqli_connect("localhost","root","","delphi");
-<<<<<<< HEAD
       $consulta = mysqli_query($conexion, "select idUsuarios ,Nombre ,Contrasena from usuarios where Tipo=2;") or die(mysqli_error($conexion));
-=======
-      $consulta = mysqli_query($conexion, "select * from usuarios") or die(mysqli_error($conexion));
->>>>>>> 4c83fa942b924997eda313f387d3842e9d56290d
         if(mysqli_num_rows($consulta)>0){
 
 ?>
@@ -116,16 +85,9 @@
       <h2>  Usuarios </h2>
       <table cellspacing="0" cellpadding="1" border="1" width="800">        
           <tr style="color:white;background-color:grey"r>
-<<<<<<< HEAD
             <th>ID_Usuario</th>
             <th>NOMBRE</th>
             <th>Contraseña</th>
-=======
-            <th>ID_USUARIO</th>
-            <th>NOMBRE</th>
-            <th>CONTRASEÑA</th>
-            <th>OPCIONES</th>
->>>>>>> 4c83fa942b924997eda313f387d3842e9d56290d
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
@@ -133,18 +95,12 @@
                echo "<td>".$registro['idUsuarios']."</td>";
                echo "<td> ".$registro['Nombre']."</td>";
                echo "<td> ".$registro['Contrasena']."</td>";
-<<<<<<< HEAD
  
                echo "<td>";
           
             
         ?>
   <a href="Visualizar_Usuario.php?txtnc=<?php echo $registro['idUsuarios']; ?> && txtNombre=<?php echo $registro['Nombre'];?> && txtcontrasena=<?php echo $registro['Contrasena'];?>"> Ver</a>
-=======
-               echo "<td>";
-        ?>
-  <a href="AgregarUsuarios_Proyectos.php?txtNombreUsuario=<?php echo $registro['Nombre']; ?>">Agregar a proyecto </a>
->>>>>>> 4c83fa942b924997eda313f387d3842e9d56290d
 <?php
               echo "</td>";
               echo "</tr>";
@@ -162,14 +118,7 @@
 
 ?>  
 </div>
-<<<<<<< HEAD
 
-=======
-<br>
-  <form name="frmregresar" action="Inicio_Administrador.php">
-    <input type="submit" name="btnregresar" value="Regresar">
-  </form> 
->>>>>>> 4c83fa942b924997eda313f387d3842e9d56290d
    
   </body>
 </html>
