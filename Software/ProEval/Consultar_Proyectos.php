@@ -72,7 +72,7 @@
 
 <?php
       $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto") or die(mysqli_error($conexion));
+      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto;") or die(mysqli_error($conexion));
         if(mysqli_num_rows($consulta)>0){
 
 ?>
