@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Inicio</title>
+    <title>Responsive Multi-level Flat Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style3.css" type="text/css" media="screen">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
@@ -57,11 +57,14 @@
     </li>
     <li><a  href="#"><i class="icon-user"></i><?php $nombre=$_GET["txtnombre"];  echo$nombre?></a>
     <ul class="sub-menu">
-    <li><a href="principal.html">Salir</a></li>
+    <li><a href="principal.html">SALIR</a></li>
     </li>
- 
+    </ul>
+    </li>
+    </ul>
     </nav>
-    <title>  </title>
+ 
+    <title>Crear Cotizacion </title>
     <meta charset="utf-8">
     <style type="text/css">
       form,h1{
@@ -69,60 +72,7 @@
       }
     </style>
   </div><!--end mainWrap-->
+
 </form>
-
-<?php
-      $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select proyecto.idProyecto , proyecto.Nombre, proyecto.Descripcion, proyecto.Fecha_Creacion, proyecto.Fecha_Limite from proyecto inner join proyecto_usuarios on proyecto_usuarios.Proyecto_idProyecto=proyecto.idProyecto inner join usuarios on usuarios.Nombre='$nombre' where proyecto_usuarios.Usuarios_idUsuarios=usuarios.idUsuarios;") or die(mysqli_error($conexion));
-
-        if(mysqli_num_rows($consulta)>0){
-
-?>
-
-
-
-<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 0px;">
-      <table cellspacing="0" cellpadding="1" border="1" width="600">        
-          <tr style="color:white;background-color:grey"r>
-            <th>id_PROYECTO</th>
-            <th>INSCRITO A PROYECTO</th>
-           <!-- <th>DESCRIPCION</th>
-            <th>FECHA DE CREACIÓN</th>
-            <th>FECHA LÍMITE</th>-->
-            <th>ACCIONES</th>
-            </tr>
-        <?php
-            while($registro=mysqli_fetch_array($consulta)){
-               echo "<tr>";
-               echo "<td> ".$registro['idProyecto']."</td>";
-               echo "<td> ".$registro['Nombre']."</td>";
-              // echo "<td> ".$registro['Descripcion']."</td>";
-              // echo "<td> ".$registro['Fecha_Creacion']."</td>";
-               //echo "<td> ".$registro['Fecha_Limite']."</td>";
-            
-
-             echo "<td>";
-        ?>
-
-       <a href="Visualizar_Proyecto_Usuario.php?txtnc=<?php echo $registro['idProyecto']; ?> && txtNombre=<?php echo $registro['Nombre'];?> && txtdescripcion=<?php echo $registro['Descripcion'];?> && txtfechaC=<?php echo $registro['Fecha_Creacion'];?> && txtfechaL=<?php echo $registro['Fecha_Limite'];?> && txtNombreUsuario=<?php echo $nombre;?>"> Visualizar</a>
-<?php
-              echo "</td>";
-              echo "</tr>";
-    }
-             
-?>
-
-</table>
-<?php
-
-}else{
-    echo "No existen registros";
-  }
-  mysqli_close($conexion);  
-
-?>  
-
-</div>
-
 </body>
 </html>
