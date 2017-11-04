@@ -57,22 +57,62 @@
     </li>
     <li><a  href="#"><i class="icon-user"></i><?php $nombre=$_GET["txtnombre"];  echo$nombre?></a>
     <ul class="sub-menu">
+  
     <li><a href="principal.html">SALIR</a></li>
     </li>
     </ul>
     </li>
     </ul>
     </nav>
- 
-    <title>Crear Cotizacion </title>
-    <meta charset="utf-8">
-    <style type="text/css">
-      form,h1{
-        text-align: center;
-      }
-    </style>
-  </div><!--end mainWrap-->
 
-</form>
+ 
+   <?php
+
+
+		$conexion = mysqli_connect("localhost","root","","delphi");
+		$consulta = mysqli_query($conexion, "select  * from usuarios where nombre = '$nombre';") or die(mysqli_error($conexion));
+
+		
+		?>
+		<table border="1">
+			<tr>
+				<th>idUsuarios</th>
+				<th>Nombre</th>
+				<th>Contraseña</th>
+				
+			</tr>
+		<?php
+			while ($registro = mysqli_fetch_array($consulta)) {
+				echo "<tr>";
+				echo "<td>".$registro['idUsuarios']."</td>";
+				echo "<td>".$registro['Nombre']."</td>";
+				echo "<td>".$registro['Contrasena']."</td>";
+				echo "<td>";
+				
+		?>
+				
+
+				&nbsp;------>&nbsp;
+				<a href="05_Modificar1.php?txtidUsuarios=<?php echo $registro['idUsuarios'];?>">Modificar</a>
+				
+		<?php
+				echo "</td>";
+				echo "</tr>";
+			}
+		?>
+		</table>
+		<?php
+		
+		
+		mysqli_close($conexion)
+		?>
+		<br>
+		<br>
+		<br>
+		<form name="frmregresar" action="Inicio_Usuario.php">
+			<input type="submit" name="btnregresar" value="Regresar">
+		</form>
+
+
 </body>
 </html>
