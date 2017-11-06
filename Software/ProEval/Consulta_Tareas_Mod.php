@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -11,6 +14,12 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
      <link rel="stylesheet" href="estiloUsuario.css" type="text/css" media="screen">
   
+     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
+    <![endif]-->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
     <script src="js/menu.js" type="text/javascript"></script> 
 
@@ -25,79 +34,81 @@
    <li><a href="#"><i class="icon-adm.png""></i>ADMIN</a>
 
    <ul class="sub-menu">
-   <li><a href="Principal.html"> Salir</a></li>
+   <li><a href="Principal.html">Salir</a></li>
    </ul>
    </li>
+   
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
-   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
-   <li><a href="Consultar_Proyectos.php"> Todos losProyectos</a></li>
+  <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
+   <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
+
     <ul>
+
     </ul>
+
    </li>
+
    </ul>
+
   </li>
-<li><a href="#"><i class="icon-user""></i>USUARIOS</a>
+
+  <li><a href="#"><i class="icon-user""></i>USUARIOS</a>
 
    <ul class="sub-menu">
    <li><a href="registro_usuario.html">Registrar Usuario</a></li>
     <li><a href="Consultar_Usuarios.php">Consultar Usuarios</a></li>
    <!--<li><a href="cotizaciones_incompletasAdmn.php">AGREGAR USUARIOS A PROYECTOS</a></li>-->
    </ul>
-  
   </ul>
+
   </nav>
   
         
- </div>
+ </div><!--end mainWrap-->
 
-<!--
+
 <?php
-     $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto") or die(mysqli_error($conexion));
+      $iPro=$_GET["id"];
+      $nPro=$_GET["np"];
+      $conexion = mysqli_connect("localhost","root","","delphi");
+      $consulta = mysqli_query($conexion, "select idTareas, Descripcion_Tareas from tareas") or die(mysqli_error($conexion));
         if(mysqli_num_rows($consulta)>0){
-      
+
 ?>
 
 
+
 <div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2>  Proyectos </h2>
+      <h2> TAREAS DEL PROYECTO:</h2>
+      <h3> "<?php echo $nPro; ?> "</h3>
       <table cellspacing="0" cellpadding="1" border="1" width="800">        
           <tr style="color:white;background-color:grey"r>
-            <th>ID_PROYECTO</th>
-            <th>NOMBRE</th>
-            <th>DESCRIPCION</th>
-            <th>FECHA DE CREACIÓN</th>
-            <th>FECHA LÍMITE</th>
+            <th>ID_Tareas</th>
+            <th>DESCRIPCION_TAREA</th>
              <th>ACCIONES</th>
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
                echo "<tr>";
-               echo "<td>".$registro['idProyecto']."</td>";
-               echo "<td> ".$registro['Nombre']."</td>";
-               echo "<td> ".$registro['Descripcion']."</td>";
-               echo "<td> ".$registro['Fecha_Creacion']."</td>";
-               echo "<td> ".$registro['Fecha_Limite']."</td>";
- 
+               echo "<td>".$registro['idTareas']."</td>";
+               echo "<td> ".$registro['Descripcion_Tareas']."</td>";
                echo "<td>";
           
+            
         ?>
-        
-  <a href="Visualizar_Proyecto.php?txtnc=<?php echo $registro['idProyecto']; ?>">Visualizar </a>
 
+<a href="ModificarTareas1.php?txtip=<?php echo $iPro; ?> && txtidT=<?php echo $registro['idTareas'];?> && txtdescripcion_t=<?php echo $registro['Descripcion_Tareas'];?> ">Modificar</a>
 <?php
-
               echo "</td>";
               echo "</tr>";
-
     }
-            
+             
 ?>
 
-</table> 
+</table>
 <?php
 
 }else{
@@ -106,13 +117,8 @@
   mysqli_close($conexion);  
 
 ?>  
-
 </div>
 
-<br>
-  <form name="frmregresar" action="Inicio_Administrador.php">
-    <input type="submit" name="btnregresar" value="Regresar">
-  </form> 
-   -->
+   
   </body>
 </html>

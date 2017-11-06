@@ -6,11 +6,11 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Consultar Usuarios</title>
+    <title>Consultar Proyectos</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
-  <link rel="stylesheet" href="style3.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="style31.css" type="text/css" media="screen">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
      <link rel="stylesheet" href="estiloUsuario.css" type="text/css" media="screen">
   
@@ -40,8 +40,8 @@
    
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
-    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
-         <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
+  <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
+   <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
 
@@ -54,6 +54,7 @@
    </ul>
 
   </li>
+
   <li><a href="#"><i class="icon-user""></i>USUARIOS</a>
 
    <ul class="sub-menu">
@@ -61,8 +62,6 @@
     <li><a href="Consultar_Usuarios.php">Consultar Usuarios</a></li>
    <!--<li><a href="cotizaciones_incompletasAdmn.php">AGREGAR USUARIOS A PROYECTOS</a></li>-->
    </ul>
-
-  
   </ul>
 
   </nav>
@@ -72,52 +71,41 @@
 
 
 <?php
-      $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idUsuarios ,Nombre ,Contrasena from usuarios where Tipo=2;") or die(mysqli_error($conexion));
-        if(mysqli_num_rows($consulta)>0){
-
+	$id=$_GET["txtnc"];
+	$nombrep=$_GET["txtNombre"];
+	//echo $nombrep 
 ?>
 
+			 
+		
+			
+<form name="frmMod_DatosGen" action="ModificarDatosGenerales.php" method="get">
+			Proyecto :
+      <h3> "<?php echo $nombrep;  ?>"</h3>
+      Modificar 
+			datos 
+			Generales 
+
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			<input type="submit" name="btnregresar" value="Datos Generales">
+</form>
+<form name="frmMod_DatosGen" action="insertar_tareas.php" method="get">
+			Agregar 
+			mas 
+			tareas
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			<input type="hidden" name="nombrep" value="<?php echo $nombrep; ?>">
+			<input type="submit" name="btnregresar" value="Agregar Tareas">
+</form>
+<form name="frmMod_DatosGen" action="Consulta_Tareas_Mod.php" method="get">
+			Modificar
+			 tareas
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+      <input type="hidden" name="np" value="<?php echo $nombrep; ?>">
+			<input type="submit" name="btnregresar" value="Modificar Tareas">
 
 
-<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2>  Usuarios </h2>
-      <table cellspacing="0" cellpadding="1" border="1" width="800">        
-          <tr style="color:white;background-color:grey"r>
-            <th>ID_Usuario</th>
-            <th>NOMBRE</th>
-            <th>Contraseña</th>
-            </tr>
-        <?php
-            while($registro=mysqli_fetch_array($consulta)){
-               echo "<tr>";
-               echo "<td>".$registro['idUsuarios']."</td>";
-               echo "<td> ".$registro['Nombre']."</td>";
-               echo "<td> ".$registro['Contrasena']."</td>";
- 
-               echo "<td>";
-          
-            
-        ?>
-  <a href="Visualizar_Usuario.php?txtnc=<?php echo $registro['idUsuarios']; ?> && txtNombre=<?php echo $registro['Nombre'];?> && txtcontrasena=<?php echo $registro['Contrasena'];?>"> Ver</a>
-<?php
-              echo "</td>";
-              echo "</tr>";
-    }
-             
-?>
-
-</table>
-<?php
-
-}else{
-    echo "No existen registros";
-  }
-  mysqli_close($conexion);  
-
-?>  
-</div>
-
+</form>-->
    
   </body>
 </html>

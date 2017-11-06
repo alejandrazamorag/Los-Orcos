@@ -75,7 +75,7 @@
       <br>
   Nombre del proyecto:
 <?php
-        echo $idproyecto;
+        echo $nombre;
 ?>
 <br>
   Descripcion del proyecto:

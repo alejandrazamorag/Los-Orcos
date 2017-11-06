@@ -34,7 +34,7 @@
    <li><a href="#"><i class="icon-adm.png""></i>ADMIN</a>
 
    <ul class="sub-menu">
-   <li><a href="Login_Administrador.html">Salir</a></li>
+   <li><a href="Principal.html">Salir</a></li>
    </ul>
    </li>
    
@@ -104,7 +104,9 @@
             
         ?>
 
-<a href="Visualizar_Proyecto.php?txtnc=<?php echo $registro['idProyecto']; ?> && txtNombre=<?php echo $registro['Nombre'];?> && txtdescripcion=<?php echo $registro['Descripcion'];?> && txtfechaC=<?php echo $registro['Fecha_Creacion'];?> && txtfechaL=<?php echo $registro['Fecha_Limite'];?>"> Visualizar</a>
+<a href="Visualizar_Proyecto.php?txtnc=<?php echo $registro['idProyecto']; ?> && txtNombre=<?php echo $registro['Nombre'];?> && txtdescripcion=<?php echo $registro['Descripcion'];?> && txtfechaC=<?php echo $registro['Fecha_Creacion'];?> && txtfechaL=<?php echo $registro['Fecha_Limite'];?>">Visualizar </a>
+
+<a href="Opciones_Modificar_Proyecto.php?txtnc=<?php echo $registro['idProyecto']; ?> && txtNombre=<?php echo $registro['Nombre'];?>">Modificar</a>
 <?php
               echo "</td>";
               echo "</tr>";

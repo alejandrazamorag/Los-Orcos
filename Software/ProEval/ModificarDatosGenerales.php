@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Crear Proyecto</title>
+    <title>Modificar Proyecto</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        
@@ -33,7 +33,7 @@
     <ul class="menu">
    <li><a href="#"><i class="icon-adm.png""></i>ADMIN</a>
    <ul class="sub-menu">
-   <li><a href="Principal.html"> Salir</a></li>
+   <li><a href="Login_Administrador.html"> Salir</a></li>
    </ul>
    </li>
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
@@ -62,30 +62,46 @@
         
  </div><!--end mainWrap-->
 
-<form name="frmdatos" action="Proyecto_Crear.php" " method="get">
+<?php
+$id=$_GET["id"];
+$conexion=mysqli_connect("localhost","root","","delphi");
+$resultado = mysqli_query($conexion,"select Nombre, Descripcion, Fecha_Creacion, Fecha_Limite, Hora_Limite from proyecto where idProyecto='$id';");
+$fila = mysqli_fetch_row($resultado);
+
+$nombre= $fila[0]; 
+$descripcion= $fila[1]; 
+$fecha_creacion= $fila[2]; 
+$fecha_limite =$fila[3]; 
+$hora_limite =$fila[4]; 
+?>
+
+
+<form name="frmdatos" action="Modificar_Proyecto.php" " method="get">
  <br>
- <big><i>      Crear Proyecto  </big></i>
+ <big><i>      Modificar Proyecto  </big></i>
       <br>
       <br>
       Nombre del Proyecto:
-      <input type="text" name="txtNombreProyecto" required="required">
+      <input type="text" name="txtNombreProyecto" required="required" value="<?php echo $nombre?>">
+      <br>
       <br>
       Descripción del proyecto:
       <br>
-      <textarea name="txtDescripcion" required="required" rows="5" cols="43"></textarea>
+      <textarea name="txtDescripcion" required="required" rows="5" cols="43"><?php echo $descripcion ?></textarea>
       <br>
       <br>
       <br>
       Terminó de estimación:
       <br>
       -Selecciona la fecha
-      <input type="date" name="fechalimite" min="2017-10-01" max="2018-10-25" required="required">
+      <input type="date" name="fechalimite" min="2017-10-01" max="2018-10-25" required="required" value="<?php echo $fecha_limite?>">
       <!-- Campo de entrada de hora -->
       <br>
       -Selecciona la hora
-      <input type="time" name="horalimite" min="24:00" max="24:00" step="600" required="required">
+      <input type="time" name="horalimite" min="24:00" max="24:00" step="600" required="required" value="<?php echo $hora_limite?>">
       <br>
       <!-- Botón--> 
-      <input type="submit" name="btnguardarProyecto" value="Crear Proyecto">  
+      <input type="submit" name="btnmodificarProyecto" value="Modificar Datos Generales">
+      <input type=hidden value="<?php echo $id ?>" name="id">;
 </body>
 </html>
