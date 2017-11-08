@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+	<head>
+
+				<script >
+			function validar(e){
+				key=e.keyCode || e.which;
+
+				teclado=String.fromCharCode(key);
+			
+			especiales="8-37-38-46";
+			letras="ABCDEFGHIJKLMNÑOPRRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789";
+			teclado_especial=false;
+
+			for ( var i in especiales){
+					if(key==especiales[i]){
+						teclado_especial=true;
+					}
+			}
+
+			if(letras.indexOf(teclado)==-1 && !teclado_especial){
+				return false;
+			}
+		}
+
+				
+			
+		</script>
+
+
+		<title>Ingresar Usuario</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="estiloUsuarioLogin.css">
+	</head>
+	<body>
+			<form name="frmloquesea" action="Login_Usuario.php" method="get">
+			<h1>Datos del usuario</h1>
+				<!--Usuario-->
+				<input type="text" onkeypress="return validar(event)" placeholder="&#128588;  Usuario" name="txtnombre" required="required">
+				<br>
+				<!--Contrasena-->
+				<input type="password" onkeypress="return validar(event)"  placeholder="&#128272; Contraseña" name="txtcontrasena" required="required">
+				<br>
+				<!--Boton -->
+				<input type="submit" name="btnenviar" value="Ingresar">
+			</form>
+			<form name="frmregresar" action="Principal.html">
+				<input type="submit" name="btnregresar" value="Inicio">
+			</form>
+	</body>
+</html>
