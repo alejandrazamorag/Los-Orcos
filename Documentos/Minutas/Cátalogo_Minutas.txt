@@ -1,0 +1,10 @@
+------------->>>>>>>Catálogo de Minutas<<<<<<<----------
+
+Minuta No.1 | Minuta de asignación de proyecto para el equipo Orcos
+Minuta No.2 | Minuta de creacion de HU
+Minuta No.3 | Minuta de Entrega del primer Sprint
+Minuta No.4 | Minuta de retrospectiva del primer Sprint
+Minuta No.5 | Minuta de Entrega del segundo Sprint
+Minuta No.6 | Minuta de retrospectiva del segundo Sprint
+Minuta No.7 | Minuta de Entrega del tercer Sprint
+Minuta No.8 | Minuta de retrospectiva del tercer Sprint
