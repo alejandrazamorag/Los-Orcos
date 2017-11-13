@@ -6,14 +6,17 @@
     <title>Consultar Proyectos</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/estil.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
        
-  <link rel="stylesheet" href="style3.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="style30.css" type="text/css" media="screen">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
      <link rel="stylesheet" href="estiloUsuario.css" type="text/css" media="screen">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
     <script src="js/menu.js" type="text/javascript"></script> 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="peticion.js"></script>
 </head>
   
  <body>
@@ -67,16 +70,25 @@
      <br>
      <br>
      <br>
+
+
   <?php
     $conexion=mysqli_connect("localhost","root","","delphi");
     $idusuario = $_GET['txtnc'];
     $NombreUsuario = $_GET['txtNombre'];
     $Contrasena = $_GET['txtcontrasena'];
+
+    session_start();
+    $_SESSION['idUsuarioAdmin']= $idusuario;
+
+
   ?>
+
 
   ID Usuario:
 <?php
         echo $idusuario;
+       // echo $_SESSION['idUsuarioAdmin'];
 ?>
         <input type="hidden" name="id" value="<?php echo $idusuario; ?>">
       <br>
@@ -90,32 +102,22 @@
         echo $Contrasena;
 ?>
 
-     <?php
-  $consulta=mysqli_query($conexion,"select * from proyecto;");
-
-  if(mysqli_num_rows($consulta) > 0) {
- ?> 
- <br>
- <br>
- Proyectos: <?php echo "<select name='idProyecto'>"; 
-    while($rows=mysqli_fetch_array($consulta)){
-      //echo $rows['idPaquete'].">>>>>".$rows['Nombre_Paquete'];
-      echo "<option value=".$rows['idProyecto'].">".$rows['Nombre'].",       Descripcion : ".$rows['Descripcion']."</option>";
-    }
-    echo "</select>";
-  }
-
-    mysqli_close($conexion); 
-    
-
-
-?>
 <br>
-<br>
- <input type="submit" name="btnguardacot" value="Agregar Proyecto">
 
+<header>
+      <div class="alert alert-info">
+      <h4>Buscar por nombre de usuario: </h4>
+      </div>
+    </header>
+      <h6>
+    <section>
+      <input type="text" name="busqueda" id="busqueda" placeholder="Buscar..." cols="100" rows="10">
+    </section>
 
-
+    <section id="tabla_resultado">
+    <!-- AQUI SE DESPLEGARA NUESTRA TABLA DE CONSULTA -->
+    </section>
+    </h6>
 
 <?php
       $conexion = mysqli_connect("localhost","root","","delphi");

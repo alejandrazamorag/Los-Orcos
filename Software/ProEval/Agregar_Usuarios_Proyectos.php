@@ -7,8 +7,9 @@
 	</head>
 	<body>
 		<?php
-			$idProyecto=$_GET['idProyecto']; 
-			$id=$_GET['id'];  
+		session_start();
+			$idProyecto=$_GET['var']; 
+			$id=$_SESSION['idUsuarioAdmin'];  
 			
 			//$idUbica=$_GET['idUbicacion']; 
 			//echo $idProyecto;
@@ -16,15 +17,14 @@
  		$conexion=mysqli_connect("localhost","root","","delphi");
 		$consulta=mysqli_query($conexion,"insert into proyecto_usuarios (Proyecto_idProyecto, Usuarios_idUsuarios)  values ('$idProyecto', '$id');")or die(mysqli_error($conexion));
 if($consulta!=null){
-			//	echo "cotizacion realizada y costo de $total";
 		?>
 
 			<script type="text/javascript">
 				alert(" <?php echo "Usuario Agregado al Proyecto"?> ");
+				window.location.href="Consultar_Usuarios.php";
 
 			</script>
 			<?php
-
 		
 		}else{
 
@@ -33,17 +33,12 @@ if($consulta!=null){
 			<script type="text/javascript">
 				alert(" <?php echo "Fallo, vuelve a intentar"?> ");
 
-				//window.location.href="cotizacion.php";
+				
 			</script>
 			<?php
 			mysqli_close($conexion);
 			}
 ?>
-		<form name="frmregresar" action="Consultar_Usuarios.php">
-		<h1>ProEval</h1>
-			<input type="submit" name="btnregresar" value="Regresar">
-			<!-- <input type="text" name="txtnombre" value=<?php echo $nombre ?> <div style="visibility: hidden;"> </div>-->
-		</form>
 
 	</body>
 </html>
