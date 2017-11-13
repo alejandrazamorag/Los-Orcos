@@ -106,7 +106,7 @@
 
 <header>
       <div class="alert alert-info">
-      <h4>Buscar por nombre de usuario: </h4>
+      <h4>Buscar por nombre de proyecto: </h4>
       </div>
     </header>
       <h6>
