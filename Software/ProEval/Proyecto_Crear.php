@@ -14,7 +14,10 @@
 
 		$conexion=mysqli_connect("localhost","root","","delphi");
 		$fechaCreacion=date("Y-m-d");
-
+		$horaactual= date("H:i:s");
+		//echo "la hora actual $horaactual"; 
+if ($fechalim >= $fechaCreacion) {
+	if ($horalim > $horaactual) {
 		$consulta=mysqli_query($conexion,"insert into proyecto(idProyecto ,Nombre ,Descripcion, Fecha_Creacion, Fecha_Limite, Hora_Limite, Estado)  values (null ,'$nombreProyecto' ,'$descripcion','$fechaCreacion' ,'$fechalim' ,'$horalim', 0);")or die(mysqli_error($conexion));
 
 		if($consulta!=null){
@@ -34,13 +37,37 @@
 
 			<script type="text/javascript">
 				alert(" <?php echo "Fallo"?> ");
+			</script>
+			<?php
+			}
+		}else{
 
-				//window.location.href="cotizacion.php";
+			?>
+
+			<script type="text/javascript">
+				alert(" <?php echo "menor la fecha"?> ");
+				window.location.href="Crear_Proyecto.php";
 			</script>
 			<?php
 			mysqli_close($conexion);
 			}
+
+		}else{
+
+			?>
+
+			<script type="text/javascript">
+				alert(" <?php echo "menor la hora"?> ");
+				window.location.href="Crear_Proyecto.php";
+			</script>
+			<?php
+			mysqli_close($conexion);
+			}
+
+		
 		?>
+
+
 <?php
 		$consulta=mysqli_query($conexion,"select idProyecto from proyecto where Nombre='$nombreProyecto';");
 		$r=mysqli_fetch_row($consulta);
@@ -51,6 +78,7 @@
 
 
 ?>
+
 
 		<form name="frmragregart" action="insertar_tareas.php" method="get">
 			<h1> ProEval</h1>
