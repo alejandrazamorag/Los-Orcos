@@ -74,9 +74,10 @@
 
   <?php
     $conexion=mysqli_connect("localhost","root","","delphi");
-    $idusuario = $_GET['txtnc'];
-    $NombreUsuario = $_GET['txtNombre'];
-    $Contrasena = $_GET['txtcontrasena'];
+    $idusuario = $_GET['var1'];
+    $idusuario;
+    $NombreUsuario = $_GET['var2'];
+    $Contrasena = $_GET['var3'];
 
     session_start();
     $_SESSION['idUsuarioAdmin']= $idusuario;
@@ -106,6 +107,7 @@
 
 <header>
       <div class="alert alert-info">
+        <h3>Agregar Proyectos</h3>
       <h4>Buscar por nombre de proyecto: </h4>
       </div>
     </header>

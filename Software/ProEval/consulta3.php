@@ -1,6 +1,5 @@
 <?php
 /////// CONEXIÓN A LA BASE DE DATOS /////////
-session_start();
 $host = 'localhost';
 $basededatos = 'delphi';
 $usuario = 'root';
@@ -15,41 +14,45 @@ if ($conexion -> connect_errno)
 //////////////// VALORES INICIALES ///////////////////////
 
 $tabla="";
-$query="SELECT * FROM proyecto ORDER BY idProyecto";
+$query="select idProyecto, Nombre, Descripcion, Fecha_Creacion, Fecha_Limite, Hora_Limite from proyecto";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
-if(isset($_POST['proyecto']))
+if(isset($_POST['proyectost']))
 {
-	$q=$conexion->real_escape_string($_POST['proyecto']);
+	$q=$conexion->real_escape_string($_POST['proyectost']);
 	$query="SELECT * FROM proyecto WHERE 
 		Nombre LIKE '%".$q."%'";
 }
+
 $buscarProyectos=$conexion->query($query);
 if ($buscarProyectos->num_rows > 0)
 {
 	$tabla.= 
 	'<table class="table">
 		<tr class="bg-primary">
-			<td>ID Proyecto</td>
-			<td>Nombre</td>
-			<td>Descripción</td>
+			<td>ID_PROYECTO</td>
+			<td>NOMBRE</td>
+			<td>DESCRIPCION</td>
+			<td>FECHA DE CREACIÓN</td>
+			<td>FECHA LÍMITE</td>
+			<td>HORA DE TERMINO</td>
 		</tr>';
 
 	while($filaProyectos= $buscarProyectos->fetch_assoc())
-	{ 
+	{
 		$tabla.=
 		'<tr>
-
 			<td>'.$filaProyectos['idProyecto'].'</td>
 			<td>'.$filaProyectos['Nombre'].'</td>
 			<td>'.$filaProyectos['Descripcion'].'</td>
-			<td> <a href="Agregar_Usuarios_Proyectos.php?var='.$filaProyectos['idProyecto'].'"> Añadir </a> </td>
+			<td>'.$filaProyectos['Fecha_Creacion'].'</td>
+			<td>'.$filaProyectos['Fecha_Limite'].'</td>
+			<td>'.$filaProyectos['Hora_Limite'].'</td>
+			<td> <a href="Visualizar_Proyecto.php?txtnc='.$filaProyectos['idProyecto'].' && txtNombre='.$filaProyectos['Nombre'].' && txtdescripcion='.$filaProyectos['Descripcion'].' && txtfechaC='.$filaProyectos['Fecha_Creacion'].' && txtfechaL='.$filaProyectos['Fecha_Limite'].'"> ver</a> </td>
+			<td> <a href="Opciones_Modificar_Proyecto.php?txtnc='.$filaProyectos['idProyecto'].' && txtNombre='.$filaProyectos['Nombre'].'">Modificar</a> </td>
 		 </tr>
 		';
-
-		
 	}
-//echo "<td></td>";
 
 	$tabla.='</table>';
 } else
@@ -60,4 +63,3 @@ if ($buscarProyectos->num_rows > 0)
 
 echo $tabla;
 ?>
-

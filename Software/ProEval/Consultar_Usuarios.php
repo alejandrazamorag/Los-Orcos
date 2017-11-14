@@ -6,22 +6,20 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Consultar Usuarios</title>
+    <title>Consultar usuarios</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/estil.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
        
-  <link rel="stylesheet" href="style3.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="style30.css" type="text/css" media="screen">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
      <link rel="stylesheet" href="estiloUsuario.css" type="text/css" media="screen">
   
-     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
-    <![endif]-->
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
     <script src="js/menu.js" type="text/javascript"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="peticion1.js"></script>
 
 </head>
   
@@ -69,55 +67,24 @@
   
         
  </div><!--end mainWrap-->
-
-
-<?php
-      $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idUsuarios ,Nombre ,Contrasena from usuarios where Tipo=2;") or die(mysqli_error($conexion));
-        if(mysqli_num_rows($consulta)>0){
-
-?>
-
-
-
-<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2>  Usuarios </h2>
-      <table cellspacing="0" cellpadding="1" border="1" width="800">        
-          <tr style="color:white;background-color:grey"r>
-            <th>ID_Usuario</th>
-            <th>NOMBRE</th>
-            <th>Contraseña</th>
-            </tr>
-        <?php
-            while($registro=mysqli_fetch_array($consulta)){
-               echo "<tr>";
-               echo "<td>".$registro['idUsuarios']."</td>";
-               echo "<td> ".$registro['Nombre']."</td>";
-               echo "<td> ".$registro['Contrasena']."</td>";
- 
-               echo "<td>";
-          
-            
-        ?>
-  <a href="Visualizar_Usuario.php?txtnc=<?php echo $registro['idUsuarios']; ?> && txtNombre=<?php echo $registro['Nombre'];?> && txtcontrasena=<?php echo $registro['Contrasena'];?>"> Ver</a>
-<?php
-              echo "</td>";
-              echo "</tr>";
-    }
-             
-?>
-
-</table>
-<?php
-
-}else{
-    echo "No existen registros";
-  }
-  mysqli_close($conexion);  
-
-?>  
+  
 </div>
+<form form name="frmdatos" action="Visualizar_Usuario.php" " method="get">
+<header>
+    <h1>Usuarios</h1>
+      <div class="alert alert-info">
+      <h4>Buscar por nombre de usuario: </h4>
+      </div>
+    </header>
+      <h6>
+    <section>
+      <input type="text" name="busqueda" id="busqueda" placeholder="Buscar..." cols="100" rows="10">
+    </section>
 
-   
+    <section id="tabla_resultado">
+    <!-- AQUI SE DESPLEGARA NUESTRA TABLA DE CONSULTA -->
+    </section>
+    </h6>
+   </form>
   </body>
 </html>

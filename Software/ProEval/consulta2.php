@@ -1,6 +1,5 @@
 <?php
 /////// CONEXIÓN A LA BASE DE DATOS /////////
-session_start();
 $host = 'localhost';
 $basededatos = 'delphi';
 $usuario = 'root';
@@ -15,41 +14,38 @@ if ($conexion -> connect_errno)
 //////////////// VALORES INICIALES ///////////////////////
 
 $tabla="";
-$query="SELECT * FROM proyecto ORDER BY idProyecto";
+$query="SELECT * FROM usuarios where Tipo=2 ORDER BY idUsuarios";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
-if(isset($_POST['proyecto']))
+if(isset($_POST['usuarios']))
 {
-	$q=$conexion->real_escape_string($_POST['proyecto']);
-	$query="SELECT * FROM proyecto WHERE 
+	$q=$conexion->real_escape_string($_POST['usuarios']);
+	$query="SELECT * FROM usuarios WHERE 
 		Nombre LIKE '%".$q."%'";
 }
-$buscarProyectos=$conexion->query($query);
-if ($buscarProyectos->num_rows > 0)
+
+$buscarUsuarios=$conexion->query($query);
+if ($buscarUsuarios->num_rows > 0)
 {
 	$tabla.= 
 	'<table class="table">
 		<tr class="bg-primary">
-			<td>ID Proyecto</td>
-			<td>Nombre</td>
-			<td>Descripción</td>
+			<td>ID USUARIOS</td>
+			<td>NOMBRE</td>
+			<td>CONTRASEÑA</td>
 		</tr>';
 
-	while($filaProyectos= $buscarProyectos->fetch_assoc())
-	{ 
+	while($filaUsuarios= $buscarUsuarios->fetch_assoc())
+	{
 		$tabla.=
 		'<tr>
-
-			<td>'.$filaProyectos['idProyecto'].'</td>
-			<td>'.$filaProyectos['Nombre'].'</td>
-			<td>'.$filaProyectos['Descripcion'].'</td>
-			<td> <a href="Agregar_Usuarios_Proyectos.php?var='.$filaProyectos['idProyecto'].'"> Añadir </a> </td>
+			<td>'.$filaUsuarios['idUsuarios'].'</td>
+			<td>'.$filaUsuarios['Nombre'].'</td>
+			<td>'.$filaUsuarios['Contrasena'].'</td>
+			<td> <a href="Visualizar_Usuario.php?var1='.$filaUsuarios['idUsuarios'].' && var2='.$filaUsuarios['Nombre'].' && var3='.$filaUsuarios['Contrasena'].'"> ver </a> </td>
 		 </tr>
 		';
-
-		
 	}
-//echo "<td></td>";
 
 	$tabla.='</table>';
 } else
@@ -60,4 +56,3 @@ if ($buscarProyectos->num_rows > 0)
 
 echo $tabla;
 ?>
-
