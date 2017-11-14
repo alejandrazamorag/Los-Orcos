@@ -51,7 +51,7 @@
 
    <ul class="sub-menu">
    <li><a href="registro_usuario.html">Registrar Usuario</a></li>
-    <li><a href="Visualizar_Usuario.php">Consultar Usuarios</a></li>
+    <li><a href="Consultar_Usuarios.php">Consultar Usuarios</a></li>
    <!--<li><a href="cotizaciones_incompletasAdmn.php">AGREGAR USUARIOS A PROYECTOS</a></li>-->
    </ul>
    </li>
