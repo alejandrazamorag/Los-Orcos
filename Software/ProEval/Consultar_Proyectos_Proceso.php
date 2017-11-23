@@ -31,7 +31,7 @@
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
-   <li><a href="Consultar_Proyectos.php"> Todos losProyectos</a></li>
+   <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
     <ul>
@@ -53,17 +53,17 @@
         
  </div>
 
-<!--
+
 <?php
      $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto") or die(mysqli_error($conexion));
+      $consulta = mysqli_query($conexion, " SELECT * FROM PROYECTO WHERE Estado = '0' and Fecha_Limite>=NOW() OR Hora_Limite >= CURRENT_TIME ") or die(mysqli_error($conexion));
         if(mysqli_num_rows($consulta)>0){
       
 ?>
 
 
 <div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2>  Proyectos </h2>
+      <h2>  Proyectos  en Proceso. </h2>
       <table cellspacing="0" cellpadding="1" border="1" width="800">        
           <tr style="color:white;background-color:grey"r>
             <th>ID_PROYECTO</th>
@@ -71,7 +71,9 @@
             <th>DESCRIPCION</th>
             <th>FECHA DE CREACIÓN</th>
             <th>FECHA LÍMITE</th>
-             <th>ACCIONES</th>
+            <th>HORA LIMITE</th>
+            
+
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
@@ -80,13 +82,16 @@
                echo "<td> ".$registro['Nombre']."</td>";
                echo "<td> ".$registro['Descripcion']."</td>";
                echo "<td> ".$registro['Fecha_Creacion']."</td>";
-               echo "<td> ".$registro['Fecha_Limite']."</td>";
+               echo "<td> ".$registro['Fecha_Limite']."</td>"; 
+               echo "<td> ".$registro['Hora_Limite']."</td>"; 
+           
+ 
  
                echo "<td>";
           
         ?>
         
-  <a href="Visualizar_Proyecto.php?txtnc=<?php echo $registro['idProyecto']; ?>">Visualizar </a>
+
 
 <?php
 
@@ -108,7 +113,7 @@
 ?>  
 
 </div>
-
+<!--
 <br>
   <form name="frmregresar" action="Inicio_Administrador.php">
     <input type="submit" name="btnregresar" value="Regresar">

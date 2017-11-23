@@ -53,17 +53,17 @@
         
  </div>
 
-<!--
+
 <?php
      $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idProyecto,Nombre,Descripcion,Fecha_Creacion,Fecha_Limite from proyecto") or die(mysqli_error($conexion));
-        if(mysqli_num_rows($consulta)>0){
+      $consulta = mysqli_query($conexion, "select * from proyecto where Estado = '1'") or die(mysqli_error($conexion));
+        if(mysqli_num_rows($consulta)>0){ 
       
 ?>
 
 
 <div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2>  Proyectos </h2>
+      <h2>  Proyectos Aceptados </h2>
       <table cellspacing="0" cellpadding="1" border="1" width="800">        
           <tr style="color:white;background-color:grey"r>
             <th>ID_PROYECTO</th>
@@ -71,7 +71,8 @@
             <th>DESCRIPCION</th>
             <th>FECHA DE CREACIÓN</th>
             <th>FECHA LÍMITE</th>
-             <th>ACCIONES</th>
+            <th>ACCIONES</th>
+
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
@@ -81,12 +82,13 @@
                echo "<td> ".$registro['Descripcion']."</td>";
                echo "<td> ".$registro['Fecha_Creacion']."</td>";
                echo "<td> ".$registro['Fecha_Limite']."</td>";
+              
  
                echo "<td>";
           
         ?>
+        <a href="Visualizar_Proyecto_Admin.php?txtnc=<?php echo $registro['idProyecto']; ?> && txtNombre=<?php echo $registro['Nombre'];?> && txtdescripcion=<?php echo $registro['Descripcion'];?> && txtfechaC=<?php echo $registro['Fecha_Creacion'];?> && txtfechaL=<?php echo $registro['Fecha_Limite'];?>">Visualizar </a>
         
-  <a href="Visualizar_Proyecto.php?txtnc=<?php echo $registro['idProyecto']; ?>">Visualizar </a>
 
 <?php
 
@@ -96,6 +98,7 @@
     }
             
 ?>
+
 
 </table> 
 <?php
@@ -108,7 +111,7 @@
 ?>  
 
 </div>
-
+<!--
 <br>
   <form name="frmregresar" action="Inicio_Administrador.php">
     <input type="submit" name="btnregresar" value="Regresar">
