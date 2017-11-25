@@ -44,6 +44,7 @@
    <li><a href="Consultar_Proyectos.php"> Todos losProyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
+  <li><a href="Consultar_Proyectos_PorAceptar.php">Proyectos por Aceptar</a></li>
    <ul>
    </ul>
    </li>

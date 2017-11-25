@@ -19,7 +19,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
     <script src="js/menu.js" type="text/javascript"></script> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="peticion2.js"></script>
+    <script src="peticion4.js"></script>
 
 </head>
   
@@ -69,23 +69,57 @@
  </div><!--end mainWrap-->
  
 </div>
-<form form name="frmdatos" method="get">
-<header>
-    <h1>Todos los Proyecto</h1>
-      <div class="alert alert-info">
-      <h4>Buscar proyecto por nombre: </h4>
-      </div>
-    </header>
-      <h6>
-    <section>
-      <input type="text" name="busqueda" id="busqueda" placeholder="Buscar..." cols="100" rows="10">
-    </section>
+<form  name="frmdatos" method="get" action="Aceptar_Rechazar.php">
 
-    <section id="tabla_resultado">
-    <!-- AQUI SE DESPLEGARA NUESTRA TABLA DE CONSULTA -->
-    </section>
-    </h6>
-   </form>
+    <?php
+    $idProyectoAceptar=$_GET["idProA"]; 
+    //echo $nombre;
+    $conexion=mysqli_connect("localhost","root","","delphi");
+
+
+    $consulta=mysqli_query($conexion,"select idtareas,Descripcion_tareas,STDDEV_SAMP(temporal) as desv, round(AVG(temporal),0) as prom from tareas inner join resultados on idtareas=Tareas_idtareas where proyecto_idproyecto='$idProyectoAceptar' group by idtareas ;")
+     or die(mysqli_error($conexion));
+
+      if(mysqli_num_rows($consulta)>0){
+?>
+<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
+      <h2>  Resultado del proyecto </h2>
+      <table cellspacing="0" cellpadding="1" border="1" width="800">        
+          <tr style="color:white;background-color:grey"r>
+            <th>idTareas</th>
+            <th>Descripcion_Tareas</th>
+            <th>DesviacionEstandar</th>
+            <th>Peso de acuerdo a la desviacion</th>
+            </tr>
+<?php
+        while($registro=mysqli_fetch_array($consulta)){
+          echo "<tr>";
+          echo "<input type=hidden value=".$registro['idtareas']." name=idTareasA[] >";
+          echo "<td>".$registro['idtareas']."</td>";
+          echo "<td> ".$registro['Descripcion_tareas']."</td>";
+          echo "<input type=hidden value=".$registro['desv']." name=desvs[] >";
+          echo "<td> ".$registro['desv']."</td>";
+           echo "<input type=hidden value=".$registro['prom']." name=idPesosN[] >";
+           echo "<td> ".$registro['prom']."</td>";
+          echo "</tr>";
+          
+        }
+        ?>
+        </table>
+<?php
+      }else{
+         ?>
+    <h1><?php echo "No existen registros"; ?> </h1>
+    <?php
+      }
+      mysqli_close($conexion);
+
+    ?>
+</div>
+
+    <input type="submit" name="btn" value="Aceptar">
+
+</form>
    
   </body>
 </html>

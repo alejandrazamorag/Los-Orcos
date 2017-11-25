@@ -36,7 +36,7 @@
    <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
          <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
-  <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
+  <li><a href="Consultar_Proyectos_PorAceptar.php">Proyectos En Proceso</a></li>
     <ul>
     </ul>
    </li>
@@ -156,7 +156,7 @@
 <?php
 
 }else{
-    echo "No existen registros";
+    echo "No existen proyectos asignados";
   }
   mysqli_close($conexion);  
 

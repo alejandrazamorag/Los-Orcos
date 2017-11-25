@@ -34,6 +34,7 @@
    <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
+  <li><a href="Consultar_Proyectos_PorAceptar.php">Proyectos por Aceptar</a></li>
     <ul>
     </ul>
    </li>
@@ -61,10 +62,10 @@
   <?php
     $conexion=mysqli_connect("localhost","root","","delphi");
     $idproyecto = $_GET['txtnc'];
-    $nombre = $_GET['txtNombre'];
-    $descripcion = $_GET['txtdescripcion'];
-    $fechacreacion = $_GET['txtfechaC'];
-    $fechaLimite = $_GET['txtfechaL'];
+    $nombre = $_GET['txtNom'];
+    $descripcion = $_GET['txtdes'];
+    $fechacreacion = $_GET['txtfc'];
+    $fechaLimite = $_GET['txtfl'];
   ?>
 
   ID Proyecto:
@@ -95,28 +96,31 @@
 <br>
 <?php
       $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idTareas ,Descripcion_tareas from tareas where Proyecto_idProyecto='$idproyecto';") or die(mysqli_error($conexion));
+      $consulta = mysqli_query($conexion, "select idTareas ,Descripcion_tareas, Peso from tareas where Proyecto_idProyecto='$idproyecto';") or die(mysqli_error($conexion));
 
         if(mysqli_num_rows($consulta)>0){
 
 ?>
+
 <br><br>
 
-Tareas del proyecto:
+Los resultados de acuerdo a los pesos de tareas  con el Método delphi fueron los siguientes:
 <br>
 <br>
 <div>
       <table cellspacing="0" cellpadding="1" border="1" width="500">        
           <tr style="color:white;background-color:grey"r>
-            <th>idTarea</th>
+            <th>Id_Tarea</th>
             <th>Tareas del Proyectos</th>
+            <th>Peso</th>
             </tr>
         <?php
             while($registro=mysqli_fetch_array($consulta)){
                echo "<tr>";
                echo "<td> ".$registro['idTareas']."</td>";
                 echo "<td> ".$registro['Descripcion_tareas']."</td>";
-            
+                echo "<td> ".$registro['Peso']."</td>";
+
         ?>
  <!-- <a href="Visualizar_Usuario.php?txtid=<?php echo $registro['idProyecto'];?> && txtNombre=<?php echo $registro['Nombre'];?>"></a>-->
 <?php
@@ -137,52 +141,7 @@ Tareas del proyecto:
 ?>  
 </div>
 
-<br>
-<!--segunda tabla-->
 
-<?php
-      $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idUsuarios,Nombre from usuarios inner join proyecto_usuarios on idUsuarios=Usuarios_idUsuarios where proyecto_idproyecto='$idproyecto';") or die(mysqli_error($conexion));
-
-        if(mysqli_num_rows($consulta)>0){
-
-?>
-<br>
-
-Usuarios que deben estimar el proyecto:
-<br>
-<br>
-<div>
-      <table cellspacing="0" cellpadding="1" border="1" width="500">        
-          <tr style="color:white;background-color:grey"r>
-            <th>idUsuario</th>
-            <th>Nombre </th>
-            </tr>
-        <?php
-            while($registro=mysqli_fetch_array($consulta)){
-               echo "<tr>";
-               echo "<td> ".$registro['idUsuarios']."</td>";
-                echo "<td> ".$registro['Nombre']."</td>";
-            
-        ?>
- <!-- <a href="Visualizar_Usuario.php?txtid=<?php echo $registro['idProyecto'];?> && txtNombre=<?php echo $registro['Nombre'];?>"></a>-->
-<?php
-              echo "</td>";
-              echo "</tr>";
-    }
-             
-?>
-
-</table>
-<?php
-
-}else{
-    echo "No existen Tareas";
-  }
-  mysqli_close($conexion);  
-
-?>  
-</div>
 </form>
 
   </body>
