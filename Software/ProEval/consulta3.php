@@ -36,6 +36,7 @@ if ($buscarProyectos->num_rows > 0)
 			<td>FECHA DE CREACIÓN</td>
 			<td>FECHA LÍMITE</td>
 			<td>HORA DE TERMINO</td>
+			<td>ACCIONES</td>
 		</tr>';
 
 	while($filaProyectos= $buscarProyectos->fetch_assoc())
@@ -48,8 +49,9 @@ if ($buscarProyectos->num_rows > 0)
 			<td>'.$filaProyectos['Fecha_Creacion'].'</td>
 			<td>'.$filaProyectos['Fecha_Limite'].'</td>
 			<td>'.$filaProyectos['Hora_Limite'].'</td>
-			<td> <a href="Visualizar_Proyecto.php?txtnc='.$filaProyectos['idProyecto'].' && txtNombre='.$filaProyectos['Nombre'].' && txtdescripcion='.$filaProyectos['Descripcion'].' && txtfechaC='.$filaProyectos['Fecha_Creacion'].' && txtfechaL='.$filaProyectos['Fecha_Limite'].'"> ver</a> </td>
-			<td> <a href="Opciones_Modificar_Proyecto.php?txtnc='.$filaProyectos['idProyecto'].' && txtNombre='.$filaProyectos['Nombre'].'">Modificar</a> </td>
+		   <td> <a href="Visualizar_Proyecto.php?txtnc='.$filaProyectos['idProyecto'].' && txtNombre='.$filaProyectos['Nombre'].' && txtdescripcion='.$filaProyectos['Descripcion'].' && txtfechaC='.$filaProyectos['Fecha_Creacion'].' && txtfechaL='.$filaProyectos['Fecha_Limite'].'"> ver</a>
+			 <a href="Opciones_Modificar_Proyecto.php?txtnc='.$filaProyectos['idProyecto'].' && txtNombre='.$filaProyectos['Nombre'].'">Modificar</a>
+			 <a href="Eliminar_Proyecto.php?txtid='.$filaProyectos['idProyecto'].' && txtNombre='.$filaProyectos['Nombre'].' && txtDescripcion='.$filaProyectos['Descripcion'].' && txtFechaC='.$filaProyectos['Fecha_Creacion'].' && txtFechaL='.$filaProyectos['Fecha_Limite'].' ">Eliminar</a> </td>
 		 </tr>
 		';
 	}
