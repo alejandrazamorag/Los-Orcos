@@ -1,5 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+  <script type="text/javascript">
+function confirmSubmit()
+{
+var agree=confirm("Está seguro de eliminar este registro? Este proceso es irreversible.");
+if (agree)
+  return true ;
+else
+   return false ;
+}
+</script>
+
 <?php
 /////// CONEXIÓN A LA BASE DE DATOS /////////
+
+
 $host = 'localhost';
 $basededatos = 'delphi';
 $usuario = 'root';
@@ -51,7 +68,8 @@ if ($buscarProyectos->num_rows > 0)
 			<td>'.$filaProyectos['Fecha_Creacion'].'</td>
 			<td>'.$filaProyectos['Fecha_Limite'].'</td>
 			<td>'.$filaProyectos['Hora_Limite'].'</td>
-			<td> <a href="Proyecto_Aceptado_Ver.php?txtnc='.$filaProyectos['idProyecto'].' && txtNom='.$filaProyectos['Nombre'].' && txtdes='.$filaProyectos['Descripcion'].' && txtfc='.$filaProyectos['Fecha_Creacion'].' && txtfl='.$filaProyectos['Fecha_Limite'].'">Visualizar Resultados</a> </td>
+			<td> <a href="Proyecto_Aceptado_Ver.php?txtnc='.$filaProyectos['idProyecto'].' && txtNom='.$filaProyectos['Nombre'].' && txtdes='.$filaProyectos['Descripcion'].' && txtfc='.$filaProyectos['Fecha_Creacion'].' && txtfl='.$filaProyectos['Fecha_Limite'].'">Visualizar</a> </td>
+			 <td><a onclick="return confirmSubmit()" href="borrarproyecto.php?t='.$filaProyectos['idProyecto'].'"">Eliminar</a></td>
 		 </tr>
 		';
 	}
@@ -65,3 +83,6 @@ if ($buscarProyectos->num_rows > 0)
 
 echo $tabla;
 ?>
+
+</body>
+</html>

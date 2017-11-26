@@ -16,7 +16,7 @@ session_start();
  $nombre =$_SESSION['nombre'];
  $idusuario=$_SESSION['idusuario'];
 $tabla="";
-$query="select proyecto.idProyecto , proyecto.Nombre, proyecto.Descripcion, proyecto.Fecha_Creacion, proyecto.Fecha_Limite from proyecto inner join proyecto_usuarios on proyecto_usuarios.Proyecto_idProyecto=proyecto.idProyecto inner join usuarios on usuarios.Nombre='$nombre' where proyecto_usuarios.Usuarios_idUsuarios=usuarios.idUsuarios;";
+$query="select proyecto.idProyecto , proyecto.Nombre, proyecto.Descripcion, proyecto.Fecha_Creacion, proyecto.Fecha_Limite from proyecto inner join proyecto_usuarios on proyecto_usuarios.Proyecto_idProyecto=proyecto.idProyecto inner join usuarios on usuarios.Nombre='$nombre' where proyecto_usuarios.Usuarios_idUsuarios=usuarios.idUsuarios and proyecto_usuarios.estado_est=0;";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
 if(isset($_POST['proyectosu']))

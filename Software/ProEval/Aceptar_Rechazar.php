@@ -7,6 +7,8 @@
 	</head>
 	<body>	
 		<?php
+		$modid=$_GET['idProymod'];
+		echo "idpro $modid";
 $listadesv=$_GET["desvs"];
 		if ($listadesv!=null){
 			
@@ -44,7 +46,7 @@ $listadesv=$_GET["desvs"];
 
 				}
 				//poner una variable para idproyecto que sea global
-			$modProyecto = mysqli_query ($conexion,"UPDATE proyecto SET Estado= 1 WHERE idProyecto=1;" )or die ('Problemas con el query'.mysqli_error($conexion));
+			$modProyecto = mysqli_query ($conexion,"UPDATE proyecto SET Estado= 1 WHERE idProyecto='$modid';" )or die ('Problemas con el query'.mysqli_error($conexion));
        		?>
 
 

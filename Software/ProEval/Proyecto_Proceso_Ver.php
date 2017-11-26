@@ -131,12 +131,13 @@ Pesos de los usuarios que estimaron actualmente el proyecto:
     }
              
 ?>
-
 </table>
+
 <?php
 
 }else{
-    echo "No existen Tareas";
+  
+    echo "Ningún Usuario a Estimado";
   }
   mysqli_close($conexion);  
 

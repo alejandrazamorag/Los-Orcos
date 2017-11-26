@@ -130,7 +130,7 @@ Tareas del proyecto:
 <?php
 
 }else{
-    echo "No existen Tareas";
+    echo "No Hay Tareas en este proyecto";
   }
   mysqli_close($conexion);  
 
@@ -177,7 +177,7 @@ Usuarios que deben estimar el proyecto:
 <?php
 
 }else{
-    echo "No existen Tareas";
+    echo "No hay Usuarios en este proyecto";
   }
   mysqli_close($conexion);  
 

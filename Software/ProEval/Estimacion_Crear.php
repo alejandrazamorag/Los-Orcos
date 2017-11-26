@@ -23,6 +23,9 @@
 
 				
 			}
+			//aqui poner la otra consulta para modificar el estado ya modificado
+
+			$consulta=mysqli_query($conexion,"UPDATE proyecto_usuarios SET estado_est =1 WHERE Proyecto_idProyecto='$idPro' AND Usuarios_idUsuarios='$idUsu'; ")or die(mysqli_error($conexion));
 			?>
 			<script type="text/javascript">
 				alert("Se guardo tu estimacion correctamente <?php echo $Nom ?>");

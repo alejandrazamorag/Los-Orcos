@@ -15,7 +15,7 @@
 			//echo $idProyecto;
 			//echo $id;
  		$conexion=mysqli_connect("localhost","root","","delphi");
-		$consulta=mysqli_query($conexion,"insert into proyecto_usuarios (Proyecto_idProyecto, Usuarios_idUsuarios)  values ('$idProyecto', '$id');")or die(mysqli_error($conexion));
+		$consulta=mysqli_query($conexion,"insert into proyecto_usuarios (Proyecto_idProyecto, Usuarios_idUsuarios,estado_est)  values ('$idProyecto', '$id', 0);")or die(mysqli_error($conexion));
 if($consulta!=null){
 		?>
 

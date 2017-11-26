@@ -25,7 +25,7 @@
    <li><a href="#"><i class="icon-adm.png""></i>ADMIN</a>
 
    <ul class="sub-menu">
-   <li><a href="Login_Administrador.html"> Salir</a></li>
+   <li><a href="Principal.html"> Salir</a></li>
    </ul>
    </li>
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
@@ -54,7 +54,7 @@
         
  </div>
 
-<form name="frmdatos"  " method="get">
+<form name="frmdatos"  " method="get" action="reporte.php">
  <br>
  <big><i>   Datos del Proyecto  </big></i>
      <br>
@@ -67,12 +67,15 @@
     $fechacreacion = $_GET['txtfc'];
     $fechaLimite = $_GET['txtfl'];
   ?>
-
+<input type="hidden" name="idP" value="<?php echo $idproyecto; ?>"> 
+<input type="hidden" name="nomP" value="<?php echo $nombre; ?>"> 
+<input type="hidden" name="des" value="<?php echo $descripcion; ?>"> 
+<input type="hidden" name="fecC" value="<?php echo $fechacreacion; ?>">
+<input type="hidden" name="fecL" value="<?php echo $fechaLimite; ?>">  
   ID Proyecto:
 <?php
         echo $idproyecto;
 ?>
-      <!-- <input type="hidden" name="id" value="<?php echo $idusuario; ?>">-->
       <br>
   Nombre del proyecto:
 <?php
@@ -104,7 +107,7 @@
 
 <br><br>
 
-Los resultados de acuerdo a los pesos de tareas  con el Método delphi fueron los siguientes:
+El resultados de los pesos de tareas con el Método delphi fueron los siguientes:
 <br>
 <br>
 <div>
@@ -122,7 +125,6 @@ Los resultados de acuerdo a los pesos de tareas  con el Método delphi fueron lo
                 echo "<td> ".$registro['Peso']."</td>";
 
         ?>
- <!-- <a href="Visualizar_Usuario.php?txtid=<?php echo $registro['idProyecto'];?> && txtNombre=<?php echo $registro['Nombre'];?>"></a>-->
 <?php
               echo "</td>";
               echo "</tr>";
@@ -141,6 +143,52 @@ Los resultados de acuerdo a los pesos de tareas  con el Método delphi fueron lo
 ?>  
 </div>
 
+<br>
+<?php
+      $conexion = mysqli_connect("localhost","root","","delphi");
+      $consulta = mysqli_query($conexion, "select distinct idUsuarios, Nombre from tareas inner join resultados on idtareas=Tareas_idtareas inner join usuarios on resultados.Usuarios_idUsuarios=usuarios.idUsuarios where proyecto_idproyecto='$idproyecto';") or die(mysqli_error($conexion));
+
+        if(mysqli_num_rows($consulta)>0){
+
+?>
+
+<br><br>
+
+Los usuarios que estimarón fueron los siguientes:
+<br>
+<br>
+<div>
+      <table cellspacing="0" cellpadding="1" border="1" width="500">        
+          <tr style="color:white;background-color:grey"r>
+            <th>id_Usuario</th>
+            <th>Nombre Usuario</th>
+            </tr>
+        <?php
+            while($registro=mysqli_fetch_array($consulta)){
+               echo "<tr>";
+               echo "<td> ".$registro['idUsuarios']."</td>";
+                echo "<td> ".$registro['Nombre']."</td>";
+
+        ?>
+<?php
+              echo "</td>";
+              echo "</tr>";
+    }
+             
+?>
+
+</table>
+<?php
+
+}else{
+    echo "No existen Tareas";
+  }
+  mysqli_close($conexion);  
+
+?>  
+</div>
+
+   <input type="submit" name="btnPDF" value="Generar PDF">
 
 </form>
 

@@ -73,6 +73,7 @@
 
     <?php
     $idProyectoAceptar=$_GET["idProA"]; 
+
     //echo $nombre;
     $conexion=mysqli_connect("localhost","root","","delphi");
 
@@ -82,6 +83,7 @@
 
       if(mysqli_num_rows($consulta)>0){
 ?>
+<input type="hidden" name="idProymod" value="<?php echo $idProyectoAceptar; ?>"> 
 <div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
       <h2>  Resultado del proyecto </h2>
       <table cellspacing="0" cellpadding="1" border="1" width="800">        

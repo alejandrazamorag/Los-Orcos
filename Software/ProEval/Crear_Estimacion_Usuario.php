@@ -65,6 +65,7 @@
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
    <ul class="sub-menu">
    <li><a href="Inicio_Usuario.php">Proyectos por estimar</a></li>
+    <li><a href="Proyectos_estimados_usuarios.php">Proyectos Estimados</a></li>
    <ul>
    </ul>
    </li>
@@ -86,6 +87,7 @@
 
 <?php
       $idproyecto = $_GET['idpro'];
+
       $idusuario =$_SESSION['idusuario'];
      // echo $idproyecto;
       //echo $idusuario;
@@ -94,8 +96,6 @@
         if(mysqli_num_rows($consulta)>0){
 
 ?>
-
-
 <input type="hidden" name="pro" value="<?php echo $idproyecto; ?>"> <!--este para enviar una variable-->
 <div style="width:400px; height:90px;  position: absolute; top: 100px; left: 10px;">
       <h1>  Tarea a estimar </h1>

@@ -45,6 +45,9 @@
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
    <ul class="sub-menu">
    <li><a href="Inicio_Usuario.php">Proyectos por estimar</a></li>
+   <li><a href="Proyectos_estimados_usuarios.php">Proyectos Estimados</a></li>
+
+
    <ul>
    </ul>
    </li>
@@ -73,7 +76,7 @@
 </div>
 <form form name="frmdatos" action="Visualizar_Proyecto_Usuario.php.php" " method="get">
 	<header>
-    <h1>Usuarios</h1>
+    <h1><?php echo $nombre;?> tus proyectos por estimar son los siguientes</h1>
       <div class="alert alert-info">
       <h4>Buscar por nombre de usuario: </h4>
       </div>

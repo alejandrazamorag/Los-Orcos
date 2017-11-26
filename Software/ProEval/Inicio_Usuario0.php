@@ -36,6 +36,7 @@
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
    <ul class="sub-menu">
    <li><a href="Inicio_Usuario.php">Proyectos por estimar</a></li>
+   <li><a href="Proyectos_estimados_usuarios.php">Proyectos Estimados</a></li>
    <ul>
    </ul>
    </li>
