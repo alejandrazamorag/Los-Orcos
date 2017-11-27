@@ -12,7 +12,9 @@
 			$descripcion=$_GET["txtDescripcion"]; 
 			$fechalim=$_GET["fechalimite"];
 			$horalim=$_GET["horalimite"];
-
+			$fechaCreacion=date("Y-m-d");
+		$horaactual= date("H:i:s");
+if ($fechalim >= $fechaCreacion) {
 			$conexion=mysqli_connect("localhost","root","","delphi");
 			$consulta=mysqli_query($conexion,"update proyecto set Nombre='$nombreProyecto', Descripcion='$descripcion', Fecha_Limite='$fechalim', Hora_Limite='$horalim' where idProyecto='$id';") or die(mysqli_error($conexion));
 
@@ -31,6 +33,22 @@
 		<?php
 			mysqli_close($conexion);
 			}
+		}else{
+
+			?>
+
+			<script type="text/javascript">
+				alert(" <?php echo "menor la fecha"?> ");
+				window.location.href="Consultar_Proyectos.php";
+			</script>
+			<?php
+			mysqli_close($conexion);
+			}
+
+		
+
+		
+		?>
 		?>
 
 	</body>
