@@ -64,7 +64,7 @@ if ($fechalim >= $fechaCreacion) {
 		$id = $r[0];
 		$nombrep=$nombreProyecto;
 		//echo $nombrep;
-
+		mysqli_close($conexion);
 
 ?>
 

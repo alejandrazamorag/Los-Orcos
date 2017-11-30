@@ -122,7 +122,7 @@
 				<td>
 				<?php
 					echo $idtar;
-					
+					mysqli_close($conexion);
 					?>
 					<input type="hidden" name="txtidproy" value="<?php echo $idproy; ?>"></td>
           <input type="hidden" name="txtidtar" value="<?php echo $idtar ?>"></td>

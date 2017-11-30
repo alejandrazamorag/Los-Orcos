@@ -156,7 +156,7 @@ $queryAlumnos= $conexion->query($alumnos);
 				}
 		
 				}
-
+				mysqli_close($conexion);
 			?>
 
 

@@ -52,16 +52,17 @@ $listadesv=$_GET["desvs"];
 
        		<script type="text/javascript">
 				alert("El proyecto fue aceptado de acuerdo al método DELPHI");
-				window.location.href="Consultar_Proyectos_Terminados.php.php";
+				window.location.href="Consultar_Proyectos_Terminados.php";
 			</script>
 			<?php
-       	}else if ($tempo>=1){
+
+       	}else if ($tempo1>=1){
        		$modProyecto = mysqli_query ($conexion,"UPDATE proyecto SET Estado= 2 WHERE idProyecto='$modid';" )or die ('Problemas con el query'.mysqli_error($conexion));
        		?>
        		<script type="text/javascript">
 				alert("No se puede aceptar el proyecto ya que 1 o varias tareas fueron rechazadas por el método.... vuelve a estimar");
-				alert("Este proyecto ahora es Rechazado");
-				window.location.href="Consultar_Proyectos_PorAceptar.php";
+				alert("Este proyecto ahora esta en Proyectos Rechazado");
+				window.location.href="Consultar_Proyectos_Rechazados.php";
 			</script>
 			<?php
        	}	
@@ -69,10 +70,12 @@ $listadesv=$_GET["desvs"];
 	?>
        		<script type="text/javascript">
 				alert("No se puede guardar la estimación, solo 1 persona estimo");
-				//window.location.href="Consultar_Proyectos.php";
+				window.location.href="Consultar_Proyectos.php";
 			</script>
 			<?php
+			
 }
+mysqli_close($conexion);
 		?>
 
 	</body>

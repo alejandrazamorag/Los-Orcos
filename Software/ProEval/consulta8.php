@@ -53,6 +53,6 @@ if ($buscarProyectos->num_rows > 0)
 		$tabla="No se encontraron coincidencias con sus criterios de búsqueda.";
 	}
 
-
+mysqli_close($conexion);
 echo $tabla;
 ?>

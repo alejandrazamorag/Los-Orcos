@@ -106,13 +106,13 @@
 				<td>
 				<?php
 					echo $idUsuarios;
-					
+					mysqli_close($conexion);
 					?>
 					<!--<input type="hidden" name="txtidUsuarios" value="<?php echo $idUsuarios; ?>"></td>-->
 					</tr>
 					<tr>
 						<td>Nombre:</td>
-						<td><input type="text" name="txtNombre" required="required" value="<?php echo $nombreu; ?>" ></td>
+						<td><input type="text" maxlength="9" name="txtNombre" required="required" value="<?php echo $nombreu; ?>" ></td>
 					</tr>
 				 <tr>
 						<td>Contraseña:</td>

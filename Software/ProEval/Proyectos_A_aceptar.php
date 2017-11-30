@@ -41,8 +41,11 @@
   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
    <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
+   <li><a href="Consultar_Proyectos_Rechazados.php">Proyectos Rechazado</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
   <li><a href="Consultar_Proyectos_PorAceptar.php">Proyectos por Aceptar</a></li>
+  <li><a href="Consultar_Proyectos_Aceptar_Restimar.php">Proyectos Restimados por Aceptar </a></li>
+
 
     <ul>
 
@@ -84,14 +87,14 @@
       if(mysqli_num_rows($consulta)>0){
 ?>
 <input type="hidden" name="idProymod" value="<?php echo $idProyectoAceptar; ?>"> 
-<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2>  Resultado del proyecto </h2>
-      <table cellspacing="0" cellpadding="1" border="1" width="800">        
+<div>
+      <h2>  Resultados del proyecto </h2>
+      <table cellspacing="0" cellpadding="1" border="1" width="600">        
           <tr style="color:white;background-color:grey"r>
             <th>idTareas</th>
             <th>Descripcion_Tareas</th>
             <th>DesviacionEstandar</th>
-            <th>Peso de acuerdo a la desviacion</th>
+            <th>Peso Promedio</th>
             </tr>
 <?php
         while($registro=mysqli_fetch_array($consulta)){
@@ -119,7 +122,7 @@
     ?>
 </div>
 
-    <input type="submit" name="btn" value="Aceptar">
+    <input type="submit" name="btn" value="Aceptar Proyecto">
 
 </form>
    

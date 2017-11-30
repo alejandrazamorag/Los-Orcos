@@ -38,11 +38,14 @@
    
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
   <ul class="sub-menu">
-  <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
+ <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
    <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
+   <li><a href="Consultar_Proyectos_Rechazados.php">Proyectos Rechazado</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
   <li><a href="Consultar_Proyectos_PorAceptar.php">Proyectos por Aceptar</a></li>
+  <li><a href="Consultar_Proyectos_Aceptar_Restimar.php">Proyectos Restimados por Aceptar </a></li>
+
 
     <ul>
 

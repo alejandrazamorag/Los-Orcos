@@ -64,8 +64,8 @@ html{-webkit-font-smoothing:antialiased;}
 a{color:#BA0707;}
 a:hover{color:#BA0707;text-decoration:underline;}
 
-body{background:#ffffff url("images/LOGO.png") top no-repeat;
-background-size: 100%;
+body{background:#ffffff url("images/LOG.png") top no-repeat;
+background-size: 80%;
 background-position: center;
 background-attachment: fixed;
 color:#3E4156;

@@ -28,7 +28,7 @@
    <li><a href="#"><i class="icon-adm.png""></i>ADMIN</a>
 
    <ul class="sub-menu">
-   <li><a href="Login_Administrador.html"> Salir</a></li>
+   <li><a href="Principal.html">Salir</a></li>
    </ul>
    </li>
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>

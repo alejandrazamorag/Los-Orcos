@@ -41,8 +41,11 @@
   <li><a href="Crear_Proyecto.php">Crear Nuevo Proyecto</a></li>
    <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
+   <li><a href="Consultar_Proyectos_Rechazados.php">Proyectos Rechazado</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
   <li><a href="Consultar_Proyectos_PorAceptar.php">Proyectos por Aceptar</a></li>
+  <li><a href="Consultar_Proyectos_Aceptar_Restimar.php">Proyectos Restimados por Aceptar </a></li>
+
 
     <ul>
 
@@ -69,7 +72,7 @@
  </div><!--end mainWrap-->
  
 </div>
-<form  name="frmdatos" method="get" action="Restimacion.php">
+<form  name="frmdatos" method="get" action="Eliminar_Restimar.php">
 
     <?php
     $idProyectoAceptar=$_GET["idProA"]; 
@@ -78,19 +81,21 @@
     $conexion=mysqli_connect("localhost","root","","delphi");
 
 
-    $consulta=mysqli_query($conexion,"select idtareas,Descripcion_tareas,STDDEV_SAMP(temporal) as desv from tareas inner join resultados on idtareas=Tareas_idtareas where proyecto_idproyecto='$idProyectoAceptar' group by idtareas ;")
+    $consulta=mysqli_query($conexion,"select idtareas,Descripcion_tareas,STDDEV_SAMP(temporal) as desv, round(AVG(temporal),0) as prom from tareas inner join resultados on idtareas=Tareas_idtareas where proyecto_idproyecto='$idProyectoAceptar' group by idtareas ;")
      or die(mysqli_error($conexion));
 
       if(mysqli_num_rows($consulta)>0){
 ?>
 <input type="hidden" name="idProymod" value="<?php echo $idProyectoAceptar; ?>"> 
-<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
+<div ">
       <h2>  Resultado del proyecto </h2>
-      <table cellspacing="0" cellpadding="1" border="1" width="800">        
+      <br>
+      <table cellspacing="0" cellpadding="1" border="1" width="600">        
           <tr style="color:white;background-color:grey"r>
             <th>idTareas</th>
             <th>Descripcion_Tareas</th>
             <th>DesviacionEstandar</th>
+            <th>Peso promedio</th>
             </tr>
 <?php
         while($registro=mysqli_fetch_array($consulta)){
@@ -100,6 +105,8 @@
           echo "<td> ".$registro['Descripcion_tareas']."</td>";
           echo "<input type=hidden value=".$registro['desv']." name=desvs[] >";
           echo "<td> ".$registro['desv']."</td>";
+           echo "<input type=hidden value=".$registro['prom']." name=idPesosN[] >";
+           echo "<td> ".$registro['prom']."</td>";
           echo "</tr>";
           
         }
@@ -115,6 +122,9 @@
 
     ?>
 </div>
+<br>
+Al dar clic a Reestimación se borraran las estimaciónes creadas, y se podra volver a estimar.
+<br>
 
     <input type="submit" name="btn" value="Reestimación">
 
