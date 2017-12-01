@@ -79,33 +79,22 @@
 			 
 		
 			
-<form name="frmMod_DatosGen" action="ModificarDatosGenerales.php" method="get">
-			Proyecto :
-      <h3> "<?php echo $nombrep;  ?>"</h3>
-      Modificar 
-			datos 
-			Generales 
+<form name="frmMod_DatosGen" method="get">
+			<h1>Proyecto : "<?php echo $nombrep;  ?>"</h1>
+      Modificar datos Generales:
+      <br>
+      --Modificar el nombre del proyecto,descripción,fecha limite y hora limite. 
+     <h4>  <a href="ModificarDatosGenerales.php?id=<?php echo $id; ?>">Modificar Datos</a></h4>
+     <br>
+     <br>
 
-			<input type="hidden" name="id" value="<?php echo $id; ?>">
-			<input type="submit" name="btnregresar" value="Datos Generales">
+      Modificar tareas:
+      <br>
+      --Modifica la descripcion de las tareas.
+     <a href="Consulta_Tareas_Mod.php?id=<?php echo $id; ?> && np=<?php echo $nombrep; ?>">Modificar Tareas</a>
+
 </form>
-<form name="frmMod_DatosGen" action="insertar_tareas.php" method="get">
-			Agregar 
-			mas 
-			tareas
-			<input type="hidden" name="id" value="<?php echo $id; ?>">
-			<input type="hidden" name="nombrep" value="<?php echo $nombrep; ?>">
-			<input type="submit" name="btnregresar" value="Agregar Tareas">
-</form>
-<form name="frmMod_DatosGen" action="Consulta_Tareas_Mod.php" method="get">
-			Modificar
-			 tareas
-			<input type="hidden" name="id" value="<?php echo $id; ?>">
-      <input type="hidden" name="np" value="<?php echo $nombrep; ?>">
-			<input type="submit" name="btnregresar" value="Modificar Tareas">
 
-
-</form>-->
    
   </body>
 </html>

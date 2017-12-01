@@ -17,7 +17,6 @@
 		$horaactual= date("H:i:s");
 		//echo "la hora actual $horaactual"; 
 if ($fechalim >= $fechaCreacion) {
-	if ($horalim > $horaactual) {
 		$consulta=mysqli_query($conexion,"insert into proyecto(idProyecto ,Nombre ,Descripcion, Fecha_Creacion, Fecha_Limite, Hora_Limite, Estado)  values (null ,'$nombreProyecto' ,'$descripcion','$fechaCreacion' ,'$fechalim' ,'$horalim', 0);")or die(mysqli_error($conexion));
 
 		if($consulta!=null){
@@ -52,17 +51,7 @@ if ($fechalim >= $fechaCreacion) {
 			mysqli_close($conexion);
 			}
 
-		}else{
-
-			?>
-
-			<script type="text/javascript">
-				alert(" <?php echo "menor la hora"?> ");
-				window.location.href="Crear_Proyecto.php";
-			</script>
-			<?php
-			mysqli_close($conexion);
-			}
+		
 
 		
 		?>

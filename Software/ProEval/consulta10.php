@@ -17,7 +17,7 @@ date_default_timezone_set("America/Guatemala");
 	$fechaactual=date("Y-m-d");
 	//echo $fechaactual;
 $tabla="";
-$query="SELECT * FROM proyecto where Fecha_Limite<'$fechaactual' and Estado=0; ";
+$query="SELECT * FROM proyecto where Estado=3; ";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
 if(isset($_POST['proyectosAA']))

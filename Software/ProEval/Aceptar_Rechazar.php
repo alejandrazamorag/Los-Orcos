@@ -52,14 +52,16 @@ $listadesv=$_GET["desvs"];
 
        		<script type="text/javascript">
 				alert("El proyecto fue aceptado de acuerdo al método DELPHI");
-				window.location.href="Consultar_Proyectos_PorAceptar.php";
+				window.location.href="Consultar_Proyectos_Terminados.php.php";
 			</script>
 			<?php
        	}else if ($tempo>=1){
+       		$modProyecto = mysqli_query ($conexion,"UPDATE proyecto SET Estado= 2 WHERE idProyecto='$modid';" )or die ('Problemas con el query'.mysqli_error($conexion));
        		?>
        		<script type="text/javascript">
 				alert("No se puede aceptar el proyecto ya que 1 o varias tareas fueron rechazadas por el método.... vuelve a estimar");
-				//window.location.href="Consultar_Proyectos.php";
+				alert("Este proyecto ahora es Rechazado");
+				window.location.href="Consultar_Proyectos_PorAceptar.php";
 			</script>
 			<?php
        	}	

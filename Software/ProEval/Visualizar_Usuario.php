@@ -105,22 +105,6 @@
 
 <br>
 
-<header>
-      <div class="alert alert-info">
-        <h3>Agregar Proyectos</h3>
-      <h4>Buscar por nombre de proyecto: </h4>
-      </div>
-    </header>
-      <h6>
-    <section>
-      <input type="text" name="busqueda" id="busqueda" placeholder="Buscar..." cols="100" rows="10">
-    </section>
-
-    <section id="tabla_resultado">
-    <!-- AQUI SE DESPLEGARA NUESTRA TABLA DE CONSULTA -->
-    </section>
-    </h6>
-
 <?php
       $conexion = mysqli_connect("localhost","root","","delphi");
       $consulta = mysqli_query($conexion, "select proyecto.idProyecto ,proyecto.Nombre from proyecto inner join proyecto_usuarios on proyecto_usuarios.Proyecto_idProyecto=proyecto.idProyecto where proyecto_usuarios.Usuarios_idUsuarios='$idusuario'") or die(mysqli_error($conexion));
@@ -129,12 +113,12 @@
 
 ?>
 
+<br>
 
-
-<div style="width:800px; height:100px;  position: absolute; top: 100px; left: 0px;">
+<div ">
       <table cellspacing="0" cellpadding="1" border="1" width="600">        
           <tr style="color:white;background-color:grey"r>
-            <th>#P</th>
+            <th>idProyecto</th>
             <th>Proyectos a los que esta Inscrito</th>
             </tr>
         <?php
@@ -162,6 +146,24 @@
 
 ?>  
 </div>
+
+<header>
+      <div class="alert alert-info">
+        <h3>Agregar Proyectos</h3>
+      <h4>Buscar por nombre de proyecto: </h4>
+      </div>
+    </header>
+      <h6>
+    <section>
+      <input type="text" name="busqueda" id="busqueda" placeholder="Buscar..." cols="100" rows="10">
+    </section>
+
+    <section id="tabla_resultado">
+    <!-- AQUI SE DESPLEGARA NUESTRA TABLA DE CONSULTA -->
+    </section>
+    </h6>
+
+
 
 </form>
     

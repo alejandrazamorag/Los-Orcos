@@ -6,22 +6,20 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Consultar Proyectos</title>
+    <title>Consultar usuarios</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/estil.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
        
-  <link rel="stylesheet" href="style3.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="style30.css" type="text/css" media="screen">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
      <link rel="stylesheet" href="estiloUsuario.css" type="text/css" media="screen">
   
-     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="http://css3-mediaqueries-js.googlecode.com/files/css3-mediaqueries.js"></script>
-    <![endif]-->
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" ></script>
     <script src="js/menu.js" type="text/javascript"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 
 </head>
   
@@ -44,6 +42,7 @@
    <li><a href="Consultar_Proyectos.php"> Todos los Proyectos</a></li>
   <li><a href="Consultar_Proyectos_Terminados.php">Proyectos Aceptados</a></li>
   <li><a href="Consultar_Proyectos_Proceso.php">Proyectos En Proceso</a></li>
+  <li><a href="Consultar_Proyectos_PorAceptar.php">Proyectos por Aceptar</a></li>
 
     <ul>
 
@@ -68,57 +67,58 @@
   
         
  </div><!--end mainWrap-->
+ 
+</div>
+<form  name="frmdatos" method="get" action="Restimacion.php">
+
+    <?php
+    $idProyectoAceptar=$_GET["idProA"]; 
+
+    //echo $nombre;
+    $conexion=mysqli_connect("localhost","root","","delphi");
 
 
-<?php
-      $iPro=$_GET["id"];
-      $nPro=$_GET["np"];
-      $conexion = mysqli_connect("localhost","root","","delphi");
-      $consulta = mysqli_query($conexion, "select idTareas, Descripcion_Tareas from tareas where Proyecto_idProyecto='$iPro'") or die(mysqli_error($conexion));
-        if(mysqli_num_rows($consulta)>0){
+    $consulta=mysqli_query($conexion,"select idtareas,Descripcion_tareas,STDDEV_SAMP(temporal) as desv from tareas inner join resultados on idtareas=Tareas_idtareas where proyecto_idproyecto='$idProyectoAceptar' group by idtareas ;")
+     or die(mysqli_error($conexion));
 
+      if(mysqli_num_rows($consulta)>0){
 ?>
-
-
-
+<input type="hidden" name="idProymod" value="<?php echo $idProyectoAceptar; ?>"> 
 <div style="width:800px; height:100px;  position: absolute; top: 100px; left: 200px;">
-      <h2> TAREAS DEL PROYECTO:</h2>
-      <h3> "<?php echo $nPro; ?> "</h3>
+      <h2>  Resultado del proyecto </h2>
       <table cellspacing="0" cellpadding="1" border="1" width="800">        
           <tr style="color:white;background-color:grey"r>
-            <th>ID_Tareas</th>
-            <th>DESCRIPCION_TAREA</th>
-             <th>ACCIONES</th>
+            <th>idTareas</th>
+            <th>Descripcion_Tareas</th>
+            <th>DesviacionEstandar</th>
             </tr>
-        <?php
-            while($registro=mysqli_fetch_array($consulta)){
-               echo "<tr>";
-               echo "<td>".$registro['idTareas']."</td>";
-               echo "<td> ".$registro['Descripcion_Tareas']."</td>";
-               echo "<td>";
+<?php
+        while($registro=mysqli_fetch_array($consulta)){
+          echo "<tr>";
+          echo "<input type=hidden value=".$registro['idtareas']." name=idTareasA[] >";
+          echo "<td>".$registro['idtareas']."</td>";
+          echo "<td> ".$registro['Descripcion_tareas']."</td>";
+          echo "<input type=hidden value=".$registro['desv']." name=desvs[] >";
+          echo "<td> ".$registro['desv']."</td>";
+          echo "</tr>";
           
-            
+        }
         ?>
-
-<a href="ModificarTareas1.php?txtip=<?php echo $iPro; ?> && txtidT=<?php echo $registro['idTareas'];?> && txtdescripcion_t=<?php echo $registro['Descripcion_Tareas'];?> ">Modificar</a>
+        </table>
 <?php
-              echo "</td>";
-              echo "</tr>";
-    }
-             
-?>
+      }else{
+         ?>
+    <h1><?php echo "No existen registros"; ?> </h1>
+    <?php
+      }
+      mysqli_close($conexion);
 
-</table>
-<?php
-
-}else{
-    echo "No existen registros";
-  }
-  mysqli_close($conexion);  
-
-?>  
+    ?>
 </div>
 
+    <input type="submit" name="btn" value="Reestimación">
+
+</form>
    
   </body>
 </html>

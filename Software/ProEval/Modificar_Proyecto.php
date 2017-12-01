@@ -20,6 +20,7 @@
 		?>
 			<script type="text/javascript">
 				alert(" <?php echo "Modifico datos basicos del proyecto"?> ");
+				window.location.href="Consultar_Proyectos.php";
 			</script>
 		<?php
 			}else{
@@ -31,11 +32,6 @@
 			mysqli_close($conexion);
 			}
 		?>
-
-		<form name="frmragregart" action="Consultar_Proyectos.php" method="get">
-			<h1> ProEval</h1>
-			<input type="submit" name="btnregresar" value="Volver">
-		</form>
 
 	</body>
 </html>

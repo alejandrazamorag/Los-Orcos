@@ -17,12 +17,12 @@ date_default_timezone_set("America/Guatemala");
 	$fechaactual=date("Y-m-d");
 	//echo $fechaactual;
 $tabla="";
-$query="SELECT * FROM proyecto where Fecha_Limite<'$fechaactual' and Estado=0; ";
+$query="SELECT * FROM proyecto where Estado=2; ";
 
 ///////// LO QUE OCURRE AL TECLEAR SOBRE EL INPUT DE BUSQUEDA ////////////
-if(isset($_POST['proyectosAA']))
+if(isset($_POST['proyectosR']))
 {
-	$q=$conexion->real_escape_string($_POST['proyectosAA']);
+	$q=$conexion->real_escape_string($_POST['proyectosR']);
 	$query="SELECT * FROM proyecto WHERE 
 		Nombre LIKE '%".$q."%'";
 }
@@ -51,7 +51,7 @@ if ($buscarProyectos->num_rows > 0)
 			<td>'.$filaProyectos['Fecha_Creacion'].'</td>
 			<td>'.$filaProyectos['Fecha_Limite'].'</td>
 			<td>'.$filaProyectos['Hora_Limite'].'</td>
-			<td> <a href="Proyectos_A_aceptar.php?idProA='.$filaProyectos['idProyecto'].'">Ver</a> </td>
+			<td> <a href="Proyectos_A_Reestimar.php?idProA='.$filaProyectos['idProyecto'].'">Ver</a> </td>
 		 </tr>
 		';
 	}
