@@ -23,7 +23,7 @@ $query="SELECT * FROM proyecto where Estado=3; ";
 if(isset($_POST['proyectosAA']))
 {
 	$q=$conexion->real_escape_string($_POST['proyectosAA']);
-	$query="SELECT * FROM proyecto WHERE 
+	$query="SELECT * FROM proyecto WHERE  Estado=3 and
 		Nombre LIKE '%".$q."%'";
 }
 
@@ -33,7 +33,7 @@ if ($buscarProyectos->num_rows > 0)
 	$tabla.= 
 	'<table class="table">
 		<tr class="bg-primary">
-			<td>ID_PROYECTO</td>
+			<td>ID_PROY</td>
 			<td>NOMBRE</td>
 			<td>DESCRIPCION</td>
 			<td>FECHA DE CREACIÓN</td>

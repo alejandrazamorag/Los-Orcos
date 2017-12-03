@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Consultar usuarios</title>
+    <title>Ver proyecto a aceptar</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/estil.css" rel="stylesheet">
@@ -86,9 +86,19 @@
 
       if(mysqli_num_rows($consulta)>0){
 ?>
+      <h2>  Resultados del proyecto </h2>
+      <br>
+      <br>
+
+El método Delphi es una técnica de investigación  cuya  finalidad visualizar los puntos de discrepancia entre personas en la temática objeto de la investigación.
+<br>
+En este caso se acepta un proyecto cuando al realizar la formula de desviación estandar muestral esta entre 0  1.5
+<br>
+<br>
+
 <input type="hidden" name="idProymod" value="<?php echo $idProyectoAceptar; ?>"> 
 <div>
-      <h2>  Resultados del proyecto </h2>
+
       <table cellspacing="0" cellpadding="1" border="1" width="600">        
           <tr style="color:white;background-color:grey"r>
             <th>idTareas</th>

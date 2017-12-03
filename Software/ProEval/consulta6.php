@@ -40,7 +40,7 @@ $query="SELECT * FROM proyecto where Estado=1; ";
 if(isset($_POST['proyectosAcep']))
 {
 	$q=$conexion->real_escape_string($_POST['proyectosAcep']);
-	$query="SELECT * FROM proyecto WHERE 
+	$query="SELECT * FROM proyecto WHERE Estado=1 and
 		Nombre LIKE '%".$q."%'";
 }
 
@@ -50,7 +50,7 @@ if ($buscarProyectos->num_rows > 0)
 	$tabla.= 
 	'<table class="table">
 		<tr class="bg-primary">
-			<td>ID_PROYECTO</td>
+			<td>ID_PROY</td>
 			<td>NOMBRE</td>
 			<td>DESCRIPCION</td>
 			<td>FECHA DE CREACIÓN</td>
@@ -68,7 +68,7 @@ if ($buscarProyectos->num_rows > 0)
 			<td>'.$filaProyectos['Fecha_Creacion'].'</td>
 			<td>'.$filaProyectos['Fecha_Limite'].'</td>
 			<td>'.$filaProyectos['Hora_Limite'].'</td>
-			<td> <a href="Proyecto_Aceptado_Ver.php?txtnc='.$filaProyectos['idProyecto'].' && txtNom='.$filaProyectos['Nombre'].' && txtdes='.$filaProyectos['Descripcion'].' && txtfc='.$filaProyectos['Fecha_Creacion'].' && txtfl='.$filaProyectos['Fecha_Limite'].'">Visualizar</a> </td>
+			<td> <a href="Proyecto_Aceptado_Ver.php?txtnc='.$filaProyectos['idProyecto'].' && txtNom='.$filaProyectos['Nombre'].' && txtdes='.$filaProyectos['Descripcion'].' && txtfc='.$filaProyectos['Fecha_Creacion'].' && txtfl='.$filaProyectos['Fecha_Limite'].'">Ver</a> </td>
 			 <td><a onclick="return confirmSubmit()" href="borrarproyecto.php?t='.$filaProyectos['idProyecto'].'"">Eliminar</a></td>
 		 </tr>
 		';

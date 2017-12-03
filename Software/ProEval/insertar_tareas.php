@@ -28,7 +28,7 @@ $queryAlumnos= $conexion->query($alumnos);
 <html lang="es">
 
 	<head>
-		<title></title>
+		<title>Insertar Tareas</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 

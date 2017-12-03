@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Responsive Multi-level Flat Menu</title>
+    <title>Inicio Administrador</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        

@@ -30,7 +30,7 @@ if ($buscarProyectos->num_rows > 0)
 	$tabla.= 
 	'<table class="table">
 		<tr class="bg-primary">
-			<td>ID Proyecto</td>
+			<td>ID_PROY</td>
 			<td>Nombre</td>
 			<td>Descripción</td>
 		</tr>';

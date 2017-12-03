@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>Inicio Asignar</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="estiloUsuarioLogin.css">
 	</head>
@@ -13,6 +13,18 @@
 			$horalim=$_GET["horalimite"];
 
 		$conexion=mysqli_connect("localhost","root","","delphi");
+$sql = mysqli_query($conexion,"select count(1) from proyecto where trim(Nombre) = '$nombreProyecto'")or die (mysqli_error($conexion));
+		list($existe) = mysqli_fetch_row($sql);
+if ($existe > 0)
+{
+    ?>
+			<script type="text/javascript">
+				alert("Error al guardar...el proyecto ya existe");
+				window.location.href="Crear_Proyecto.php";
+			</script>
+			<?php
+}else{
+
 		$fechaCreacion=date("Y-m-d");
 		$horaactual= date("H:i:s");
 		//echo "la hora actual $horaactual"; 
@@ -44,7 +56,7 @@ if ($fechalim >= $fechaCreacion) {
 			?>
 
 			<script type="text/javascript">
-				alert(" <?php echo "menor la fecha"?> ");
+				alert(" <?php echo "La fecha es menor a la actual"?> ");
 				window.location.href="Crear_Proyecto.php";
 			</script>
 			<?php
@@ -52,7 +64,7 @@ if ($fechalim >= $fechaCreacion) {
 			}
 
 		
-
+}
 		
 		?>
 

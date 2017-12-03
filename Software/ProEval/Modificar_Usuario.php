@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Inicio</title>
+    <title>Modificat Usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style3.css" type="text/css" media="screen">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css" >
@@ -61,7 +61,8 @@
    </li>
    <li><a  href="#"><i class="icon-user"></i>PROYECTOS</a>
    <ul class="sub-menu">
-   <li><a href="Inicio_Usuario.php">Proyectos por estimar</a></li>
+     <li><a href="Inicio_Usuario.php">Proyectos por estimar</a></li>
+    <li><a href="Proyectos_estimados_usuarios.php">Proyectos Estimados</a></li>
    <ul>
    </ul>
    </li>
