@@ -20,7 +20,7 @@ $query="SELECT * FROM usuarios where Tipo=2 ORDER BY idUsuarios";
 if(isset($_POST['usuarios']))
 {
 	$q=$conexion->real_escape_string($_POST['usuarios']);
-	$query="SELECT * FROM usuarios WHERE 
+	$query="SELECT * FROM usuarios WHERE Tipo=2 AND
 		Nombre LIKE '%".$q."%'";
 }
 

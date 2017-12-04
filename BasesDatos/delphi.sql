@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2017 a las 12:45:25
+-- Tiempo de generación: 05-12-2017 a las 01:08:31
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `dephi`
+-- Base de datos: `delphi`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +34,8 @@ CREATE TABLE IF NOT EXISTS `proyecto` (
   `Fecha_Limite` date NOT NULL,
   `Hora_Limite` time NOT NULL,
   `Estado` int(11) NOT NULL,
-  PRIMARY KEY (`idProyecto`)
+  PRIMARY KEY (`idProyecto`),
+  UNIQUE KEY `Nombre` (`Nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -95,8 +96,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `Nombre` varchar(45) NOT NULL,
   `Contrasena` varchar(45) NOT NULL,
   `Tipo` int(11) NOT NULL,
-  PRIMARY KEY (`idUsuarios`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  PRIMARY KEY (`idUsuarios`),
+  UNIQUE KEY `Nombre` (`Nombre`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
