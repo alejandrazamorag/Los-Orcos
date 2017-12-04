@@ -28,8 +28,8 @@ $listadesv=$_GET["desvs"];
 					$tempo1++;
 				}
       		}
-      	//echo "en el rango $tempo y "."<br/>";
-       	//echo " no estan en el rango $tempo1"."<br/>";
+      
+
        	$conexion=mysqli_connect("localhost","root","","delphi");
        	if($longitud==$tempo){
        		/*
