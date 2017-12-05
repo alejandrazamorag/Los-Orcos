@@ -13,7 +13,7 @@
 			$consulta=mysqli_query($conexion,"DELETE FROM proyecto WHERE idProyecto ='$proyect' and Estado =1; ")or die(mysqli_error($conexion));
 			?>
 			<script type="text/javascript">
-				alert("Se elimino_correctamente");
+				alert("Se elimino correctamente el proyecto");
 				window.location.href="Consultar_Proyectos_Terminados.php";
 			</script>
 			<?php

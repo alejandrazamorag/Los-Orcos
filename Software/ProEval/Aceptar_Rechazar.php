@@ -13,7 +13,7 @@ $listadesv=$_GET["desvs"];
 		if ($listadesv!=null){
 			
 			$longitud = count($listadesv);
-			echo "lista: $longitud";
+			//echo "lista: $longitud";
 			$listaidTareas=$_GET["idTareasA"]; 
 			
 			$listapesosN=$_GET["idPesosN"];
@@ -28,8 +28,8 @@ $listadesv=$_GET["desvs"];
 					$tempo1++;
 				}
       		}
-      	echo "en el rango $tempo y "."<br/>";
-       	echo " no estan en el rango $tempo1"."<br/>";
+      	//echo "en el rango $tempo y "."<br/>";
+       	//echo " no estan en el rango $tempo1"."<br/>";
        	$conexion=mysqli_connect("localhost","root","","delphi");
        	if($longitud==$tempo){
        		/*
@@ -69,7 +69,7 @@ $listadesv=$_GET["desvs"];
 }else{
 	?>
        		<script type="text/javascript">
-				alert("No se puede guardar la estimación, solo 1 persona estimo");
+				alert("No se puede guardar la estimación, solo 1 o ninguna persona estimo");
 				window.location.href="Consultar_Proyectos.php";
 			</script>
 			<?php

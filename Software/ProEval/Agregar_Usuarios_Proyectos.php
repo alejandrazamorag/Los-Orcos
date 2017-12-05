@@ -24,7 +24,7 @@ if ($existe > 0)
     ?>
 			<script type="text/javascript">
 				alert("Error al guardar...el usuario ya tiene este proyecto");
-				window.location.href="Crear_Proyecto.php";
+				window.location.href="Consultar_Usuarios.php";
 			</script>
 			<?php
 }else{
@@ -33,7 +33,7 @@ if($consulta!=null){
 		?>
 
 			<script type="text/javascript">
-				alert(" <?php echo "Usuario Agregado al Proyecto"?> ");
+				alert(" <?php echo "Usuario Agregado al Proyecto con exito"?> ");
 				window.location.href="Consultar_Usuarios.php";
 
 			</script>

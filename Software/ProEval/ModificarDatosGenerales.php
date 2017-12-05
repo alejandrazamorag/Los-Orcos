@@ -106,6 +106,6 @@ $hora_limite =$fila[4];
       <br>
       <!-- Botón--> 
       <input type="submit" name="btnmodificarProyecto" value="Modificar Datos Generales">
-      <input type=hidden value="<?php echo $id ?>" name="id">;
+      <input type=hidden value="<?php echo $id ?>" name="id">
 </body>
 </html>

@@ -29,7 +29,7 @@
 		else{
 			?>
 			<script type="text/javascript">
-				alert("No se puede iniciar, intenta de nuevo");
+				alert("No se puede iniciar, los datos ingresados son incorrectos, intenta de nuevo");
 				window.location.href="Login_Usuario.html";
 			</script>
 			<?php

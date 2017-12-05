@@ -95,7 +95,7 @@
       Modificar tareas:
       <br>
       --Modifica la descripcion de las tareas.
-     <a href="Consulta_Tareas_Mod.php?id=<?php echo $id; ?> && np=<?php echo $nombrep; ?>">Modificar Tareas</a>
+    <h4>  <a href="Consulta_Tareas_Mod.php?id=<?php echo $id; ?> && np=<?php echo $nombrep; ?>">Modificar Tareas</a> </h4>
 
 </form>
 

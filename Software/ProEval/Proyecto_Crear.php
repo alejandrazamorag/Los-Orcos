@@ -36,7 +36,7 @@ if ($fechalim >= $fechaCreacion) {
 		?>
 
 			<script type="text/javascript">
-				alert(" <?php echo "Guardo datos basicos del proyecto"?> ");
+				alert(" <?php echo "Se guardaron los datos generales del proyecto con exito "?> ");
 
 			</script>
 			<?php

@@ -16,13 +16,9 @@
 		$conexion = mysqli_connect("localhost","root","","delphi");
 		$consulta = mysqli_query($conexion, " UPDATE tareas SET Descripcion_Tareas = '$des' WHERE idTareas = '$it';")or die(mysqli_error($conexion));
 			
-		mysqli_close($conexion);
-
-		//header("Location: Inicio_Usuario0.php");
-		
 			?>
 			<script type="text/javascript">
-				alert("Modificación Guardado Correctamente");
+				alert("Modificación de Tarea guardada correctamente");
 				window.location.href="Consultar_Proyectos.php";
 			</script>
 			<?php

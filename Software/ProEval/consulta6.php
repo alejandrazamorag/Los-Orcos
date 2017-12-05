@@ -5,7 +5,7 @@
   <script type="text/javascript">
 function confirmSubmit()
 {
-var agree=confirm("Está seguro de eliminar este registro? Este proceso es irreversible.");
+var agree=confirm("¡Está seguro de eliminar este registro? Este proceso es irreversible.");
 if (agree)
   return true ;
 else

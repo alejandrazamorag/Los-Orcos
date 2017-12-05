@@ -21,7 +21,7 @@ if ($fechalim >= $fechaCreacion) {
 			if($consulta!=null){
 		?>
 			<script type="text/javascript">
-				alert(" <?php echo "Modifico datos basicos del proyecto"?> ");
+				alert(" <?php echo "Se modifico los datos basicos del proyecto con exito"?> ");
 				window.location.href="Consultar_Proyectos.php";
 			</script>
 		<?php
@@ -38,17 +38,12 @@ if ($fechalim >= $fechaCreacion) {
 			?>
 
 			<script type="text/javascript">
-				alert(" <?php echo "menor la fecha"?> ");
+				alert(" <?php echo "La fecha es menor a la actual"?> ");
 				window.location.href="Consultar_Proyectos.php";
 			</script>
 			<?php
 			mysqli_close($conexion);
 			}
-
-		
-
-		
-		?>
 		?>
 
 	</body>

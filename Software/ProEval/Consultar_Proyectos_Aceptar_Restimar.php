@@ -74,7 +74,7 @@
 </div>
 <form form name="frmdatos" method="get">
 <header>
-    <h1>Proyectos Reestimados por por Aceptar</h1>
+    <h1>Proyectos Reestimados por Aceptar</h1>
       <div class="alert alert-info">
       <h4>Buscar proyecto por nombre: </h4>
       </div>

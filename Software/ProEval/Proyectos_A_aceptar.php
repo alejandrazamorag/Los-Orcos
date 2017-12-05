@@ -92,7 +92,7 @@
 
 El método Delphi es una técnica de investigación  cuya  finalidad visualizar los puntos de discrepancia entre personas en la temática objeto de la investigación.
 <br>
-En este caso se acepta un proyecto cuando al realizar la formula de desviación estandar muestral esta entre 0  1.5
+En este caso se acepta un proyecto cuando al realizar la formula de desviación estandar muestral esta entre 0  y  1.5
 <br>
 <br>
 
